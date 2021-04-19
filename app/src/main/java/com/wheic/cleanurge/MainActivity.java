@@ -57,18 +57,6 @@ public class MainActivity extends AppCompatActivity {
         }
         );
         tabLayoutMediator.attach();
-//        String uid = sharedPrefManager.getUser().getId();
-//        getUserFromUid(uid);
-
-//        userNameText = findViewById(R.id.specificUserName);
-//        userEmailText = findViewById(R.id.specificUserEmail);
-//        userPhoneText = findViewById(R.id.specificUserPhone);
-//        userAddressText = findViewById(R.id.specificUserAddress);
-//
-//        userNameText.setText(sharedPrefManager.getUser().getName());
-//        userEmailText.setText(sharedPrefManager.getUser().getEmail());
-//        userPhoneText.setText(String.valueOf(sharedPrefManager.getUser().getPhone()));
-//        userAddressText.setText(sharedPrefManager.getUser().getAddress());
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override

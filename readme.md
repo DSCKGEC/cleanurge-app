@@ -97,9 +97,9 @@ A step by step series of instructions that tell you how to get the project runni
 
 ## Built with
 
-- [Platform IO](https://platformio.org)
-- [Arduino Framework](https://arduino.cc)
-- [Firebase](https://firebase.google.com)
+- [JAVA](https://www.oracle.com/in/java/)
+- [Android Studio 4.1](https://developer.android.com/studio)
+- [Retrofit](https://square.github.io/retrofit/)
 
 ## Contributing
 

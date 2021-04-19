@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OtherActivity.CreateAccountActivity">
+
+    <EditText
+        android:id="@+id/createAccUserNameInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/createAccUserEmailInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserNameInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserNameInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserNameInput" />
+
+    <EditText
+        android:id="@+id/createAccUserPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserEmailInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserEmailInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserEmailInput" />
+
+    <EditText
+        android:id="@+id/createAccUserCPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Confirm Password"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserPasswordInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserPasswordInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserPasswordInput" />
+
+    <EditText
+        android:id="@+id/createAccUserPhoneInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Phone No."
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserCPasswordInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserCPasswordInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserCPasswordInput" />
+
+    <EditText
+        android:id="@+id/createAccUserAddressInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Address"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserPhoneInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserPhoneInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserPhoneInput" />
+
+    <Button
+        android:id="@+id/AccountCreateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Create Account"
+        app:layout_constraintEnd_toEndOf="@+id/createAccUserAddressInput"
+        app:layout_constraintStart_toStartOf="@+id/createAccUserAddressInput"
+        app:layout_constraintTop_toBottomOf="@+id/createAccUserAddressInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

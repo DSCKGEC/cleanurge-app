@@ -1,103 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OtherActivity.CreateAccountActivity">
 
-    <EditText
-        android:id="@+id/createAccUserNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loginTopLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/createAccUserEmailInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Email"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserNameInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserNameInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserNameInput" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-2dp"
+            android:layout_marginEnd="-2dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/registration_background_design"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/createAccUserPasswordInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserEmailInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserEmailInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserEmailInput" />
+        <ImageButton
+            android:id="@+id/goBackButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button_layout"
+            android:gravity="center"
+            android:src="@drawable/go_back_white_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/createAccUserCPasswordInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Confirm Password"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserPasswordInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserPasswordInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserPasswordInput" />
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Create Account"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/goBackButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/createAccUserPhoneInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:hint="Phone No."
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserCPasswordInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserCPasswordInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserCPasswordInput" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/createAccUserAddressInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Address"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserPhoneInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserPhoneInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserPhoneInput" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTopLayout">
 
-    <Button
-        android:id="@+id/AccountCreateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Create Account"
-        app:layout_constraintEnd_toEndOf="@+id/createAccUserAddressInput"
-        app:layout_constraintStart_toStartOf="@+id/createAccUserAddressInput"
-        app:layout_constraintTop_toBottomOf="@+id/createAccUserAddressInput" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/createAccUserNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Name"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:inputType="textPersonName"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <EditText
+                android:id="@+id/createAccUserEmailInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:hint="Email"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <EditText
+                android:id="@+id/createAccUserPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:hint="Password"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/createAccUserCPasswordInput"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:ems="10"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:background="@drawable/more_rounded_borderless_secondary_blue_background"-->
+<!--                android:hint="Confirm Password"-->
+<!--                android:textColor="@color/primary_blue"-->
+<!--                android:textSize="18sp"-->
+<!--                android:paddingStart="15dp"-->
+<!--                android:paddingEnd="15dp" />-->
+
+            <EditText
+                android:id="@+id/createAccUserPhoneInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:hint="Phone No."
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp" />
+
+            <EditText
+                android:id="@+id/createAccUserAddressInput"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/AccountCreateBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Create Account"
+                    android:background="@drawable/rounded_button_layout" />
+
+                <ProgressBar
+                    android:id="@+id/createAccProgressbar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

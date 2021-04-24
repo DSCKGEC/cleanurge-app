@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/wholeCardLayout"
@@ -27,6 +32,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:orientation="horizontal"
+                android:background="@drawable/more_rounded_blue_outline_white_with_border_layout"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +44,8 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="1"
-                    android:textSize="30sp" />
+                    android:textSize="25sp"
+                    android:textColor="@color/primary_blue"/>
 
             </LinearLayout>
 
@@ -50,29 +57,31 @@
                 android:orientation="vertical"
                 android:weightSum="2"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/beaconColorAlertView"
+                app:layout_constraintEnd_toStartOf="@+id/reportColorAlertView"
                 app:layout_constraintStart_toEndOf="@+id/serialNumberView"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:gravity="center"
                     android:layout_weight="1">
 
                     <TextView
                         android:id="@+id/beaconCodeHeadingText"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Beacon 4AB3D"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
-                        android:textSize="22sp"/>
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_blue"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:weightSum="2"
                     android:orientation="vertical"
                     android:layout_weight="1">
@@ -80,32 +89,36 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:gravity="center"
                         android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/beaconAddressText"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Address : 221 B, Baker Street"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
                             android:paddingTop="5dp"
                             android:paddingStart="10dp"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/primary_blue"/>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:gravity="center"
                         android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/beaconLevelText"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="Level : 90%"
+                            android:layout_height="wrap_content"
                             android:paddingTop="5dp"
+                            android:gravity="top"
                             android:paddingStart="10dp"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textColor="@color/primary_blue"/>
 
                     </LinearLayout>
 
@@ -114,10 +127,10 @@
             </LinearLayout>
 
             <View
-                android:id="@+id/beaconColorAlertView"
+                android:id="@+id/reportColorAlertView"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

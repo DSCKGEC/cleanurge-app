@@ -1,4 +1,4 @@
-package com.wheic.cleanurge.ModelResponse;
+package com.wheic.cleanurge.ModelResponse.User;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

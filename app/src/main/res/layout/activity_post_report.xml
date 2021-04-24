@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OtherActivity.PostReportActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/postReportToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="30dp"
+        android:background="@color/primary_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/goBackButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_button_layout"
+            android:src="@drawable/go_back_white_icon"
+            android:layout_gravity="start"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/toolBarAppText"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="CleanUrge"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/reportBtnLayout"
+        app:layout_constraintTop_toBottomOf="@+id/postReportToolBar">
+
+        <LinearLayout
+            android:id="@+id/newReportInfoAreaLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postReportToolBar">
+
+            <LinearLayout
+                android:id="@+id/newReportTitleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/newReportImageLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/newReportTitleInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/less_rounded_cornered_with_border_white_background"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:hint="Enter the Report Content"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/newReportImageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/less_rounded_cornered_with_border_white_background"
+                app:layout_constraintBottom_toTopOf="@+id/newReportAddressLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newReportTitleLayout">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/newReportImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"
+                        android:background="@drawable/less_rounded_cornered_with_border_white_background" />
+
+                    <ImageView
+                        android:id="@+id/newReportAddImage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/add_an_image_icon"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/newReportAddressLayout"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newReportImageLayout">
+
+                <EditText
+                    android:id="@+id/newReportAddressInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/less_rounded_cornered_with_border_white_background"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:hint="Enter the Report Address"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/reportBtnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/addReportBtn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="REPORT"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/newReportInfoAreaLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:padding="5dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/postReportToolBar">-->
+
+    <!--        &lt;!&ndash;        <ScrollView&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:clipToPadding="true">&ndash;&gt;-->
+
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:id="@+id/newReportInfoInnerLayout"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:gravity="center_vertical">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/newReportTitleLayout"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="120dp"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="5dp"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/newReportImageLayout"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--                <EditText-->
+    <!--                    android:id="@+id/newReportTitleInput"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/newReportImageLayout"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="240dp"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="5dp"-->
+    <!--                android:foreground="?android:attr/selectableItemBackground"-->
+    <!--                android:clickable="true"-->
+    <!--                android:focusable="true"-->
+    <!--                app:layout_constraintBottom_toTopOf="@+id/newReportAddressLayout"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/newReportTitleLayout">-->
+
+    <!--                <ImageView-->
+    <!--                    android:id="@+id/newReportImageView"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:scaleType="fitXY"/>-->
+
+    <!--            </LinearLayout>-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/newReportAddressLayout"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="180dp"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="8dp"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/newReportImageLayout">-->
+
+    <!--                <EditText-->
+    <!--                    android:id="@+id/newReportAddressInput"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--&lt;!&ndash;            <LinearLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:id="@+id/newReportSetLocationChoiceLayout"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:layout_height="50dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:orientation="horizontal"&ndash;&gt;-->
+    <!--&lt;!&ndash;                android:padding="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintBottom_toTopOf="@+id/newReportSetLocationBtnLayout"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                app:layout_constraintTop_toBottomOf="@+id/newReportAddressLayout">&ndash;&gt;-->
+
+    <!--&lt;!&ndash;                <Spinner&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:id="@+id/newReportSetLocationChoice"&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:layout_marginStart="30dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:layout_marginEnd="30dp" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;            </LinearLayout>&ndash;&gt;-->
+
+    <!--            <LinearLayout-->
+    <!--                android:id="@+id/newReportSetLocationBtnLayout"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="100dp"-->
+    <!--                android:gravity="center"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:padding="5dp"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/newReportAddressLayout">-->
+
+    <!--                <Button-->
+    <!--                    android:id="@+id/newReportSetLocationBtn"-->
+    <!--                    android:layout_width="200dp"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Get Location"-->
+    <!--                    android:textSize="20sp" />-->
+
+    <!--            </LinearLayout>-->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--        &lt;!&ndash;        </ScrollView>&ndash;&gt;-->
+
+    <!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

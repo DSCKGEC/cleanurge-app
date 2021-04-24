@@ -11,35 +11,34 @@
         android:id="@+id/mapToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
         android:elevation="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="30dp"
+        android:background="@color/primary_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/goBackButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_button_layout"
+            android:src="@drawable/go_back_white_icon"
+            android:layout_gravity="start"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/toolBarAppText"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:textSize="23sp"
+            android:gravity="center"
             android:text="CleanUrge"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/goBackBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="13sp"
-            android:text="Back"
-            android:layout_gravity="end"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -70,13 +69,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:layout_gravity="bottom"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:orientation="vertical"
-            android:padding="10dp"
-            android:background="@color/white">
+            android:background="@drawable/top_left_and_top_right_rounded_corner_white_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/top_left_and_top_right_rounded_corner_primary_blue_background">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="BEACON INFORMATION"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/beaconCodeText"
@@ -84,6 +98,9 @@
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:text="Beacon: Code"
+                android:textColor="@color/primary_blue"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"/>
 
@@ -93,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Address: Code"
+                android:textColor="@color/primary_blue"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"/>
@@ -103,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Level: Code"
+                android:textColor="@color/primary_blue"
                 android:layout_marginTop="5dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"/>

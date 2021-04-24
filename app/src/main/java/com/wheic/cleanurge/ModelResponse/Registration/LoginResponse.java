@@ -2,7 +2,7 @@ package com.wheic.cleanurge.ModelResponse.Registration;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.wheic.cleanurge.ModelResponse.User;
+import com.wheic.cleanurge.ModelResponse.User.User;
 
 public class LoginResponse {
 

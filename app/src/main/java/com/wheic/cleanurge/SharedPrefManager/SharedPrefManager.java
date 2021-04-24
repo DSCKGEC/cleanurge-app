@@ -3,7 +3,7 @@ package com.wheic.cleanurge.SharedPrefManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.wheic.cleanurge.ModelResponse.User;
+import com.wheic.cleanurge.ModelResponse.User.User;
 
 public class SharedPrefManager {
     private static String SHARED_PREF_NAME = "SessionStore";
@@ -32,19 +32,37 @@ public class SharedPrefManager {
         }
     }
 
-    public User getUser(){
+    public User getUserForID(){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+//        return new User(sharedPreferences.getString("UserName", null),
+//                sharedPreferences.getString("UserEmail", null),
+//                sharedPreferences.getInt("UserPhone", -1),
+//                sharedPreferences.getString("UserAddress", null));
+        return new User(sharedPreferences.getString("UserID", null));
+    }
+
+    public void setUserID(User user){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString("UserID", user.getId());
+//        editor.putString("UserName", user.getName());
+//        editor.putString("UserEmail", user.getEmail());
+//        editor.putInt("UserPhone", user.getPhone());
+//        editor.putString("UserAddress", user.getAddress());
+        editor.apply();
+    }
+
+    public User getUserDetails(){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(sharedPreferences.getString("UserName", null),
                 sharedPreferences.getString("UserEmail", null),
                 sharedPreferences.getInt("UserPhone", -1),
                 sharedPreferences.getString("UserAddress", null));
-//        return new User(sharedPreferences.getString("UserID", null));
     }
 
-    public void setUser(User user){
+    public void setUserDetail(User user){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-//        editor.putString("UserID", user.getId());
         editor.putString("UserName", user.getName());
         editor.putString("UserEmail", user.getEmail());
         editor.putInt("UserPhone", user.getPhone());

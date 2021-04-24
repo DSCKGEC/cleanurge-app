@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.wheic.cleanurge.Adapter.BeaconRecycler.BeaconListAdapter;
@@ -35,6 +37,9 @@ public class BeaconFragment extends Fragment {
     private List<Beacon> beaconList;
     private BeaconListAdapter beaconListAdapter;
     private SharedPrefManager sharedPrefManager;
+    private ProgressBar beaconListProgressBar;
+    private LinearLayout beaconListCrashMessage;
+    private LinearLayout beaconListNoItemMessage;
 
     public BeaconFragment() {
         // Required empty public constructor
@@ -52,32 +57,26 @@ public class BeaconFragment extends Fragment {
         super.onViewCreated(itemView, savedInstanceState);
 
         beaconInfoList = itemView.findViewById(R.id.beaconInfoList);
+        beaconListProgressBar = itemView.findViewById(R.id.beaconListProgressBar);
+        beaconListCrashMessage = itemView.findViewById(R.id.beaconListCrashMessage);
+        beaconListNoItemMessage = itemView.findViewById(R.id.beaconListNoItemMessage);
         beaconInfoList.setHasFixedSize(true);
         beaconInfoList.setLayoutManager(new LinearLayoutManager(getActivity()));
         sharedPrefManager = new SharedPrefManager(getActivity());
-//        beaconList = new ArrayList<>();
 
-//        Call<BeaconListResponse> call = RetrofitClient.getInstance().getApi().fetchBeacons();
-//        call.enqueue(new Callback<BeaconListResponse>() {
-//
-//            @Override
-//            public void onResponse(Call<BeaconListResponse> call, Response<BeaconListResponse> response) {
-//                BeaconListResponse beaconListResponse = response.body();
-//
-//                if(response.isSuccessful()){
-//                    beaconList = response.body().getBeacons();
-//                    beaconInfoList.setAdapter(new BeaconListAdapter(getActivity(), beaconList));
-//                }else{
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BeaconListResponse> call, Throwable t) {
-//
-//            }
-//        });
+        fetchBeaconList();
+        beaconListCrashMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                beaconListCrashMessage.setVisibility(View.GONE);
+                fetchBeaconList();
+            }
+        });
+
+    }
+
+    private void fetchBeaconList(){
+        beaconListProgressBar.setVisibility(View.VISIBLE);
         Call<BeaconListResponse> call = RetrofitClient.getInstance().getApi().fetchBeacons("Bearer " + sharedPrefManager.getToken());
 
         call.enqueue(new Callback<BeaconListResponse>() {
@@ -85,9 +84,13 @@ public class BeaconFragment extends Fragment {
             public void onResponse(Call<BeaconListResponse> call, Response<BeaconListResponse> response) {
 
                 if(response.isSuccessful()){
+                    beaconInfoList.setVisibility(View.VISIBLE);
                     beaconList = new ArrayList<>(response.body().getBeacons());
                     beaconListAdapter = new BeaconListAdapter(getActivity(), beaconList);
                     beaconInfoList.setAdapter(beaconListAdapter);
+                    if(beaconList.size() == 0) {
+                        beaconListNoItemMessage.setVisibility(View.VISIBLE);
+                    }
                     beaconListAdapter.setOnItemClickListener(new BeaconListAdapter.OnItemsClickListener() {
                         @Override
                         public void onItemClick(Beacon beacon, List<Double> mapCord, String beaconCode, String beaconAddress, String beaconLevel) {
@@ -99,20 +102,25 @@ public class BeaconFragment extends Fragment {
                             mapIntent.putExtra("BeaconAddress", beaconAddress);
                             mapIntent.putExtra("BeaconLevel", beaconLevel);
                             startActivity(mapIntent);
-//                            Toast.makeText(getActivity(), ""+ mapCord.get(0), Toast.LENGTH_SHORT).show(); // long
-//                            Toast.makeText(getActivity(), ""+ mapCord.get(1), Toast.LENGTH_SHORT).show(); // lat
+
                         }
                     });
 
-                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                 }else{
+                    beaconListCrashMessage.setVisibility(View.VISIBLE);
+                    beaconInfoList.setVisibility(View.GONE);
                     Toast.makeText(getActivity(), "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
+
+                beaconListProgressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<BeaconListResponse> call, Throwable t) {
+                beaconListCrashMessage.setVisibility(View.VISIBLE);
+                beaconInfoList.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), "Error2: "+ t.getMessage(), Toast.LENGTH_SHORT).show();
+                beaconListProgressBar.setVisibility(View.VISIBLE);
             }
         });
     }

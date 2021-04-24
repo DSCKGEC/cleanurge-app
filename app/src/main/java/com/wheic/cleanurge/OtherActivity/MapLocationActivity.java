@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,7 +21,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
 
     private GoogleMap mMap;
     private double lat, lng;
-    private Button goBackBtn;
+    private ImageButton goBackButton;
     private String beaconCode, beaconAddress, beaconLevel;
     private TextView beaconCodeText, beaconAddressText, beaconLevelText;
 
@@ -34,12 +35,12 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
         beaconAddress = getIntent().getStringExtra("BeaconAddress");
         beaconLevel = getIntent().getStringExtra("BeaconLevel");
 
-        goBackBtn = findViewById(R.id.goBackBtn);
+        goBackButton = findViewById(R.id.goBackButton);
         beaconCodeText = findViewById(R.id.beaconCodeText);
         beaconAddressText = findViewById(R.id.beaconAddressText);
         beaconLevelText = findViewById(R.id.beaconLevelText);
 
-        goBackBtn.setOnClickListener(new View.OnClickListener() {
+        goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(MapLocationActivity.this, BeaconFragment.class));
@@ -60,7 +61,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
         // Add a marker in Sydney and move the camera
         LatLng beaconLoc = new LatLng(lat, lng);
         mMap.addMarker(new MarkerOptions().position(beaconLoc).title(""));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(beaconLoc));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(beaconLoc, 7));
 
         beaconCodeText.setText("Beacon: " + beaconCode);
         beaconAddressText.setText("Address: " + beaconAddress);

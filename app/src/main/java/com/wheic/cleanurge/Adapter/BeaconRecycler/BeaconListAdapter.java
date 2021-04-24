@@ -2,6 +2,7 @@ package com.wheic.cleanurge.Adapter.BeaconRecycler;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wheic.cleanurge.ModelResponse.Beacon.Beacon;
@@ -46,14 +48,14 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
 
         holder.beaconSerialText.setText("" + (position + 1));
         holder.beaconCodeHeadingText.setText("Beacon: " + beaconList.get(position).getCode());
-        holder.beaconAddressText.setText("Address: " + beaconList.get(position).getAddress());
-        holder.beaconLevelText.setText("Level: " + beaconList.get(position).getLevel());
+        holder.beaconAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + beaconList.get(position).getAddress()));
+        holder.beaconLevelText.setText(Html.fromHtml("<b>" + "Level : " + "</b>" + beaconList.get(position).getLevel()));
         if((80 <= level) && (level <= 100)){
-            holder.beaconColorAlertView.setBackgroundColor(Color.RED);
+            holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_red_alert_background));
         }else if ((50 <= level) && (level <= 80)){
-            holder.beaconColorAlertView.setBackgroundColor(Color.BLUE);
+            holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_blue_alert_background));
         }else{
-            holder.beaconColorAlertView.setBackgroundColor(Color.GREEN);
+            holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_green_alert_background));
         }
         holder.wholeCardLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +94,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
             beaconCodeHeadingText = itemView.findViewById(R.id.beaconCodeHeadingText);
             beaconAddressText = itemView.findViewById(R.id.beaconAddressText);
             beaconLevelText = itemView.findViewById(R.id.beaconLevelText);
-            beaconColorAlertView = itemView.findViewById(R.id.beaconColorAlertView);
+            beaconColorAlertView = itemView.findViewById(R.id.reportColorAlertView);
 
         }
 

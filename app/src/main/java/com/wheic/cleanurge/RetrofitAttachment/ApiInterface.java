@@ -3,6 +3,9 @@ package com.wheic.cleanurge.RetrofitAttachment;
 import com.wheic.cleanurge.ModelResponse.Beacon.BeaconListResponse;
 import com.wheic.cleanurge.ModelResponse.Registration.LoginResponse;
 import com.wheic.cleanurge.ModelResponse.Registration.RegisterResponse;
+import com.wheic.cleanurge.ModelResponse.Reports.ReportPostResponse;
+import com.wheic.cleanurge.ModelResponse.Reports.ReportUserGetResponse;
+import com.wheic.cleanurge.ModelResponse.User.UserResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -10,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiInterface {
 
@@ -30,13 +34,30 @@ public interface ApiInterface {
             @Field("password") String password
     );
 
-//    @GET("api/user/{id}")
-//    Call<UserResponse> getUID(
-//            @Path("id") String uID,
-//            @Header("Authorization") String authToken);
+    @GET("api/user/{id}")
+    Call<UserResponse> getUsers(
+            @Path("id") String uID,
+            @Header("Authorization") String authToken);
 
     @GET("api/beacon")
     Call<BeaconListResponse> fetchBeacons(@Header("Authorization") String authToken);
+
+    @FormUrlEncoded
+    @POST("api/report/create")
+    Call<ReportPostResponse> addReports(
+            @Header("Authorization") String authToken,
+            @Field("content") String content,
+            @Field("picture_url") String imageUrl,
+            @Field("address") String address
+    );
+
+    @GET("api/report/user/{id}")
+    Call<ReportUserGetResponse> getUserReports(
+            @Header("Authorization") String authToken,
+            @Path("id") String uID
+    );
+
+
 
 
 }

@@ -14,6 +14,7 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:elevation="10dp"
+        android:background="@color/primary_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,20 +27,33 @@
             android:text="CleanUrge"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/logOutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="13sp"
-            android:text="LogOUt"
-            android:layout_gravity="end"
-            android:gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/white"
             android:textAlignment="center" />
+
+        <ImageButton
+            android:id="@+id/addReportBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_button_layout"
+            android:src="@drawable/post_add_plus"
+            android:layout_gravity="end"
+            android:gravity="center"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/logOutBtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:textSize="13sp"-->
+<!--            android:text="LogOUt"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:gravity="center"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textAlignment="center" />-->
+
+
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -56,20 +70,28 @@
             android:id="@+id/viewPagerTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:tabIndicatorColor="@color/purple_700"
+            android:background="@color/primary_blue"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
             app:tabIndicatorHeight="3dp"
             android:layout_alignParentTop="true"
             app:tabMode="fixed"
             app:tabPaddingBottom="8dp"
             app:tabPaddingTop="15dp"/>
-        
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/slidingFragmentsPager"
+
+        <LinearLayout
+            android:id="@+id/slidingFragmentsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/viewPagerTabLayout"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/slidingFragmentsPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 

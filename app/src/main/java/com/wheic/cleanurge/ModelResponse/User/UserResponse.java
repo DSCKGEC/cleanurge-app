@@ -1,15 +1,14 @@
-package com.wheic.cleanurge.ModelResponse.Registration;
+package com.wheic.cleanurge.ModelResponse.User;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.wheic.cleanurge.ModelResponse.User.User;
 
-public class RegisterResponse {
+public class UserResponse {
     @SerializedName("user")
     @Expose
     private User user;
 
-    public RegisterResponse(User user) {
+    public UserResponse(User user) {
         this.user = user;
     }
 

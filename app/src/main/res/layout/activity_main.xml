@@ -40,19 +40,6 @@
             android:gravity="center"
             android:src="@drawable/post_add_plus" />
 
-        <!--        <Button-->
-        <!--            android:id="@+id/logOutBtn"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:textSize="13sp"-->
-        <!--            android:text="LogOUt"-->
-        <!--            android:layout_gravity="end"-->
-        <!--            android:gravity="center"-->
-        <!--            android:textStyle="bold"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textAlignment="center" />-->
-
-
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout

@@ -74,6 +74,7 @@ Below are a few prerequisites and installation guides:
 
 1. Android Development using JAVA 8
 2. Working with API
+3. Using Firebase
 
 #### Softwares needed
 
@@ -101,6 +102,7 @@ The best way to learn the following is to google each and everything!
     -   [For testing API](https://learning.postman.com/docs/getting-started/introduction/)
 
 
+
 ### Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
@@ -118,6 +120,7 @@ A step by step series of instructions that tell you how to get the project runni
 - [JAVA](https://www.oracle.com/in/java/)
 - [Android Studio 4.1](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
+- [Firebase](https://firebase.google.com/docs/storage/android/start)
 
 ## Contributing
 

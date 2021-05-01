@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,10 +10,10 @@
         android:id="@+id/mapToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/primary_blue"
         android:elevation="10dp"
         android:paddingStart="20dp"
         android:paddingEnd="30dp"
-        android:background="@color/primary_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,11 +22,11 @@
             android:id="@+id/goBackButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="start"
             android:layout_marginEnd="20dp"
             android:background="@drawable/rounded_button_layout"
-            android:src="@drawable/go_back_white_icon"
-            android:layout_gravity="start"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:src="@drawable/go_back_white_icon" />
 
         <TextView
             android:id="@+id/toolBarAppText"
@@ -45,10 +44,10 @@
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mapToolBar"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/mapToolBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -61,8 +60,8 @@
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                map:layout_constraintTop_toTopOf="parent"
                 map:layout_constraintBottom_toBottomOf="parent"
+                map:layout_constraintTop_toTopOf="parent"
                 tools:context=".OtherActivity.MapLocationActivity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -73,22 +72,22 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:orientation="vertical"
-            android:background="@drawable/top_left_and_top_right_rounded_corner_white_background">
+            android:background="@drawable/top_left_and_top_right_rounded_corner_white_background"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="@drawable/top_left_and_top_right_rounded_corner_primary_blue_background">
+                android:background="@drawable/top_left_and_top_right_rounded_corner_primary_blue_background"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textColor="@color/white"
                     android:text="BEACON INFORMATION"
-                    android:textStyle="bold"/>
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -96,35 +95,35 @@
                 android:id="@+id/beaconCodeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:text="Beacon: Code"
-                android:textColor="@color/primary_blue"
-                android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:paddingStart="20dp"
-                android:paddingEnd="10dp"/>
+                android:paddingEnd="10dp"
+                android:text="Beacon: Code"
+                android:textColor="@color/primary_blue"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/beaconAddressText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Address: Code"
-                android:textColor="@color/primary_blue"
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
-                android:paddingEnd="10dp"/>
+                android:paddingEnd="10dp"
+                android:text="Address: Code"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/beaconLevelText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Level: Code"
-                android:textColor="@color/primary_blue"
                 android:layout_marginTop="5dp"
                 android:paddingStart="20dp"
-                android:paddingEnd="10dp"/>
+                android:paddingEnd="10dp"
+                android:text="Level: Code"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.ProfileFragment">
 
     <LinearLayout
@@ -14,9 +13,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/less_rounded_cornered_with_border_white_background"
         android:orientation="vertical"
         android:padding="20dp"
-        android:background="@drawable/less_rounded_cornered_with_border_white_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,9 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="John Doe"
-            android:textStyle="bold"
             android:textColor="@color/primary_blue"
-            android:textSize="27sp" />
+            android:textSize="27sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/currentUserEmail"
@@ -57,12 +56,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:background="@drawable/less_rounded_cornered_with_border_white_background"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:background="@drawable/less_rounded_cornered_with_border_white_background"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/userInfoLayout"
         app:layout_constraintStart_toStartOf="@+id/userInfoLayout"
         app:layout_constraintTop_toBottomOf="@+id/userInfoLayout">
@@ -74,7 +73,7 @@
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/userReportPieChart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/resolvedDetailPieErrorMessage"
@@ -90,10 +89,10 @@
                     android:layout_height="wrap_content"
                     android:scaleType="centerInside"
                     android:src="@drawable/pie_data_fetch_error"
+                    app:layout_constraintBottom_toTopOf="@+id/pieFetchErrorMessageText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/pieFetchErrorMessageText"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/pieFetchErrorMessageText"
@@ -101,8 +100,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Something went wrong!!! Tap to reload"
-                    android:textSize="20sp"
                     android:textColor="@color/primary_blue"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -135,8 +134,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="No reports has been issued yet!!!"
-                    android:textSize="20sp"
                     android:textColor="@color/primary_blue"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -148,32 +147,11 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
         </FrameLayout>
 
     </LinearLayout>
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/editProfileLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:padding="10dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/pieLayout">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/editProfileText"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Edit Profile"-->
-<!--            android:textSize="20sp" />-->
-
-<!--    </LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/logoutLayout"
@@ -182,11 +160,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
-        android:padding="10dp"
+        android:background="@drawable/rounded_button_layout"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:background="@drawable/rounded_button_layout"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pieLayout">
@@ -195,11 +173,11 @@
             android:id="@+id/logoutText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log Out"
-            android:textStyle="bold"
-            android:textColor="@color/white"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,158 +11,156 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:elevation="50dp"
-        app:cardCornerRadius="20dp"
         android:clickable="true"
+        android:elevation="50dp"
         android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reportWholeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/reportWholeLayout"
+                android:id="@+id/reportTopLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/reportTopLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <LinearLayout
-                            android:id="@+id/serialNumberView"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="10dp"
-                            android:orientation="horizontal"
-                            android:background="@drawable/more_rounded_blue_outline_white_with_border_layout"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/reportSerialText"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:textColor="@color/primary_blue"
-                                android:text="1"
-                                android:textSize="25sp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/reportColorAlertView"
-                            app:layout_constraintStart_toEndOf="@+id/serialNumberView"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:id="@+id/reportContentHeadingText"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Garbage Dumped Outside Of Bin. Kindly Attend And Fix."
-                                android:textSize="20sp"
-                                android:textColor="@color/primary_blue"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                        <View
-                            android:id="@+id/reportColorAlertView"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--                </androidx.cardview.widget.CardView>-->
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/reportExpandLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="420dp"
-                    android:visibility="gone"
+                <LinearLayout
+                    android:id="@+id/serialNumberView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/more_rounded_blue_outline_white_with_border_layout"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/reportTopLayout" >
-
-                    <ImageView
-                        android:id="@+id/reportPostImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/less_cornered_white_no_border_background"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ProgressBar
-                        android:id="@+id/imageLoadProgressbar"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="120dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/reportAddressText"
+                        android:id="@+id/reportSerialText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="1"
                         android:textColor="@color/primary_blue"
-                        android:textSize="15sp"
-                        app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
-                        app:layout_constraintStart_toStartOf="@+id/reportPostImage"
-                        app:layout_constraintTop_toBottomOf="@+id/reportPostImage" />
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/reportColorAlertView"
+                    app:layout_constraintStart_toEndOf="@+id/serialNumberView"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/reportDateText"
+                        android:id="@+id/reportContentHeadingText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:textSize="15sp"
+                        android:text="Garbage Dumped Outside Of Bin. Kindly Attend And Fix."
                         android:textColor="@color/primary_blue"
-                        app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
-                        app:layout_constraintStart_toStartOf="@+id/reportPostImage"
-                        app:layout_constraintTop_toBottomOf="@+id/reportAddressText" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/reportTimeText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:textSize="15sp"
-                        android:textColor="@color/primary_blue"
-                        app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
-                        app:layout_constraintStart_toStartOf="@+id/reportPostImage"
-                        app:layout_constraintTop_toBottomOf="@+id/reportDateText" />
+                </LinearLayout>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/reportColorAlertView"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/reportExpandLayout"
+                android:layout_width="match_parent"
+                android:layout_height="420dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reportTopLayout">
+
+                <ImageView
+                    android:id="@+id/reportPostImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/less_cornered_white_no_border_background"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/imageLoadProgressbar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="120dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/reportAddressText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
+                    app:layout_constraintStart_toStartOf="@+id/reportPostImage"
+                    app:layout_constraintTop_toBottomOf="@+id/reportPostImage" />
+
+                <TextView
+                    android:id="@+id/reportDateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
+                    app:layout_constraintStart_toStartOf="@+id/reportPostImage"
+                    app:layout_constraintTop_toBottomOf="@+id/reportAddressText" />
+
+                <TextView
+                    android:id="@+id/reportTimeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="@+id/reportPostImage"
+                    app:layout_constraintStart_toStartOf="@+id/reportPostImage"
+                    app:layout_constraintTop_toBottomOf="@+id/reportDateText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 

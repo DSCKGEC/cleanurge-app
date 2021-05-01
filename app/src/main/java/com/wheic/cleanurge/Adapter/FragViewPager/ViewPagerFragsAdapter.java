@@ -1,4 +1,4 @@
-package com.wheic.cleanurge.Adapter.BeaconRecycler.FragViewPager;
+package com.wheic.cleanurge.Adapter.FragViewPager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

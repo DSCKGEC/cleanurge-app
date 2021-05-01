@@ -40,15 +40,10 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
         beaconAddressText = findViewById(R.id.beaconAddressText);
         beaconLevelText = findViewById(R.id.beaconLevelText);
 
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(MapLocationActivity.this, BeaconFragment.class));
-                finish();
-            }
+        goBackButton.setOnClickListener(v -> {
+            finish();
         });
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -58,7 +53,6 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
         LatLng beaconLoc = new LatLng(lat, lng);
         mMap.addMarker(new MarkerOptions().position(beaconLoc).title(""));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(beaconLoc, 7));

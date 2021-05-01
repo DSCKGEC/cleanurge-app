@@ -55,7 +55,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        addReportBtn = view.findViewById(R.id.addReportBtn);
 
         reportInfoList = view.findViewById(R.id.homeReportList);
         reportListProgressBar = view.findViewById(R.id.reportListProgressBar);
@@ -69,12 +68,9 @@ public class HomeFragment extends Fragment {
 
         fetchReportList();
 
-        reportListCrashMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reportListCrashMessage.setVisibility(View.GONE);
-                fetchReportList();
-            }
+        reportListCrashMessage.setOnClickListener(v -> {
+            reportListCrashMessage.setVisibility(View.GONE);
+            fetchReportList();
         });
 
     }
@@ -90,31 +86,17 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<ReportUserGetResponse> call, Response<ReportUserGetResponse> response) {
 
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
 
                     reportInfoList.setVisibility(View.VISIBLE);
                     reportList = new ArrayList<>(response.body().getReports());
                     reportListAdapter = new ReportListAdapter(getActivity(), reportList);
                     reportInfoList.setAdapter(reportListAdapter);
 
-                    if(reportList.size() == 0){
+                    if (reportList.size() == 0) {
                         reportListNoItemMessage.setVisibility(View.VISIBLE);
                     }
 
-//                    int resolvedCount = 0;
-//                    int unResolvedCount = 0;
-//                    for(ReportWithAuthor list : reportList){
-//                        if(list.getResolved()){
-//                            resolvedCount++;
-//                        }else{
-//                            unResolvedCount++;
-//                        }
-//                    }
-//                    Toast.makeText(getActivity(), ""+ resolvedCount, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getActivity(), ""+ unResolvedCount, Toast.LENGTH_SHORT).show();
-//                    Common.resolvedIssues = resolvedCount;
-//                    Common.unResolvedIssues = unResolvedCount;
-                    //Toast.makeText(getActivity(), "Report Showing successfully", Toast.LENGTH_SHORT).show();
                 } else {
                     reportListCrashMessage.setVisibility(View.VISIBLE);
                     reportInfoList.setVisibility(View.GONE);

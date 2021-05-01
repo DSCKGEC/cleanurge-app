@@ -1,9 +1,11 @@
 package com.wheic.cleanurge.FirebaseImageStoreModel;
 
 public class FirebaseImageStorageModel {
+
     public String imgUrl;
 
-    public FirebaseImageStorageModel () {}
+    public FirebaseImageStorageModel() {
+    }
 
     public FirebaseImageStorageModel(String imgUrl) {
         this.imgUrl = imgUrl;

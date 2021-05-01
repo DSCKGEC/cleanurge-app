@@ -81,44 +81,19 @@ public class ProfileFragment extends Fragment {
 
         fetchPieDataList();
 
-        pieLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fetchPieDataList();
-            }
-        });
+        pieLayout.setOnClickListener(v -> fetchPieDataList());
 
-//        reportPieChart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                fetchPieDataList();
-//            }
-//        });
+        logoutProfileLayout.setOnClickListener(v -> {
+            sharedPrefManager.logOut();
+            Intent loginIntent = new Intent(getActivity(), GatewayActivity.class);
+            loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(loginIntent);
 
-
-//        if((Common.resolvedIssues >= 0) && (Common.unResolvedIssues >= 0)){
-//
-//            Toast.makeText(getActivity(), "I am here 1", Toast.LENGTH_SHORT).show();
-//        }else{
-//            reportPieChart.setVisibility(View.GONE);
-//            Toast.makeText(getActivity(), "I am here 2", Toast.LENGTH_SHORT).show();
-//            //Toast.makeText(getActivity(), ""+Common.resolvedIssues + " "+ Common.unResolvedIssues, Toast.LENGTH_SHORT).show();
-//        }
-
-        logoutProfileLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPrefManager.logOut();
-                Intent loginIntent = new Intent(getActivity(), GatewayActivity.class);
-                loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(loginIntent);
-
-            }
         });
 
     }
 
-    private void fetchPieDataList(){
+    private void fetchPieDataList() {
 
         pieDataFetchProgressBar.setVisibility(View.VISIBLE);
         reportPieChart.setVisibility(View.GONE);
@@ -132,18 +107,18 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<ReportUserGetResponse> call, Response<ReportUserGetResponse> response) {
 
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
 
                     ArrayList<ReportWithAuthor> reportList = new ArrayList<>(response.body().getReports());
                     int resolvedCount = 0;
                     int unResolvedCount = 0;
-                    if(reportList.size() > 0){
+                    if (reportList.size() > 0) {
                         reportPieChart.setVisibility(View.VISIBLE);
                         resolvedDetailPieNoItemMessage.setVisibility(View.GONE);
-                        for(ReportWithAuthor list : reportList){
-                            if(list.getResolved()){
+                        for (ReportWithAuthor list : reportList) {
+                            if (list.getResolved()) {
                                 resolvedCount++;
-                            }else{
+                            } else {
                                 unResolvedCount++;
                             }
                         }
@@ -151,7 +126,7 @@ public class ProfileFragment extends Fragment {
                         setupPieChart();
                         loadPieChart(resolvedCount, unResolvedCount);
 
-                    }else if(reportList.size() == 0){
+                    } else if (reportList.size() == 0) {
                         resolvedDetailPieNoItemMessage.setVisibility(View.VISIBLE);
                     }
 
@@ -184,10 +159,10 @@ public class ProfileFragment extends Fragment {
         entries.add(new PieEntry(resolvedCount, "Resolved"));
         entries.add(new PieEntry(unResolvedCount, "Unresolved"));
         ArrayList<Integer> colors = new ArrayList<>();
-        for(int color : ColorTemplate.MATERIAL_COLORS){
+        for (int color : ColorTemplate.MATERIAL_COLORS) {
             colors.add(color);
         }
-        for(int color : ColorTemplate.VORDIPLOM_COLORS){
+        for (int color : ColorTemplate.VORDIPLOM_COLORS) {
             colors.add(color);
         }
         PieDataSet dataSet = new PieDataSet(entries, "Issues Reported");
@@ -200,7 +175,6 @@ public class ProfileFragment extends Fragment {
         reportPieChart.setData(data);
         reportPieChart.invalidate();
 
-        //reportPieChart.animateY(1400, Easing.EaseInOutQuad);
     }
 
     private void setupPieChart() {

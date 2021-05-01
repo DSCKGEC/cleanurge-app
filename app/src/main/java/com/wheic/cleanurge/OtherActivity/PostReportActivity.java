@@ -21,11 +21,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 import com.wheic.cleanurge.FirebaseImageStoreModel.FirebaseImageStorageModel;
@@ -74,35 +71,22 @@ public class PostReportActivity extends AppCompatActivity {
         displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-        newReportImageLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                askCameraPermission();
-            }
-        });
+        newReportImageLayout.setOnClickListener(v -> askCameraPermission());
 
-        goBackImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        goBackImageButton.setOnClickListener(v -> finish());
 
-        reportBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newReportTitleInputText = newReportTitleInput.getText().toString().trim();
-                newReportAddressInputText = newReportAddressInput.getText().toString().trim();
+        reportBtn.setOnClickListener(v -> {
+            newReportTitleInputText = newReportTitleInput.getText().toString().trim();
+            newReportAddressInputText = newReportAddressInput.getText().toString().trim();
 
-                if(newReportTitleInputText.isEmpty()){
-                    newReportTitleInput.setError("Report Content can't be empty");
-                }else if(newReportAddressInputText.isEmpty()){
-                    newReportAddressInput.setError("Report Address can't be empty");
-                }else if(imageUri == null){
-                    Toast.makeText(PostReportActivity.this, "No image is selected", Toast.LENGTH_SHORT).show();
-                }else{
-                    uploadImageToFireStorage(newReportTitleInputText, imageUri, newReportAddressInputText);
-                }
+            if (newReportTitleInputText.isEmpty()) {
+                newReportTitleInput.setError("Report Content can't be empty");
+            } else if (newReportAddressInputText.isEmpty()) {
+                newReportAddressInput.setError("Report Address can't be empty");
+            } else if (imageUri == null) {
+                Toast.makeText(PostReportActivity.this, "No image is selected", Toast.LENGTH_SHORT).show();
+            } else {
+                uploadImageToFireStorage(newReportTitleInputText, imageUri, newReportAddressInputText);
             }
         });
 
@@ -117,19 +101,19 @@ public class PostReportActivity extends AppCompatActivity {
 
     private void askCameraPermission() {
 
-        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
-        }else{
+        } else {
             startCropActivity();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == CAMERA_PERMISSION_CODE){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startCropActivity();
-            }else{
+            } else {
                 Toast.makeText(this, "Camera Permission Needed", Toast.LENGTH_SHORT).show();
             }
         }
@@ -147,9 +131,9 @@ public class PostReportActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if(resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 imageUri = result.getUri();
                 newReportImageView.setImageURI(imageUri);
                 newReportAddImage.setVisibility(View.GONE);
@@ -157,12 +141,11 @@ public class PostReportActivity extends AppCompatActivity {
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
 
                 assert result != null;
-                Toast.makeText(this, "Possible Error: "+  result.getError().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Possible Error: " + result.getError().getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
     }
-
 
 
     private class UploadAsyncTask extends AsyncTask<UploadParamModel, Void, Void> {
@@ -171,42 +154,29 @@ public class PostReportActivity extends AppCompatActivity {
         protected Void doInBackground(UploadParamModel... uploadParamModels) {
 
             StorageReference fileRef = ref.child(System.currentTimeMillis() + ".jpg");
-            fileRef.putFile(uploadParamModels[0].getUri()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            String imageUrl = new FirebaseImageStorageModel(uri.toString()).getImgUrl();
-                            Call<ReportPostResponse> call = RetrofitClient.getInstance().getApi().addReports(
-                                    "Bearer " + sharedPrefManager.getToken(),
-                                    uploadParamModels[0].getContent(),
-                                    imageUrl,
-                                    uploadParamModels[0].getAddress());
-                            call.enqueue(new Callback<ReportPostResponse>() {
-                                @Override
-                                public void onResponse(Call<ReportPostResponse> call, Response<ReportPostResponse> response) {
-                                    if(response.isSuccessful()){
-                                        Toast.makeText(PostReportActivity.this, "Report post Successful", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        Toast.makeText(PostReportActivity.this, "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<ReportPostResponse> call, Throwable t) {
-                                    Toast.makeText(PostReportActivity.this, "Error2: "+ t.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+            fileRef.putFile(uploadParamModels[0].getUri()).addOnSuccessListener(taskSnapshot -> fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                String imageUrl = new FirebaseImageStorageModel(uri.toString()).getImgUrl();
+                Call<ReportPostResponse> call = RetrofitClient.getInstance().getApi().addReports(
+                        "Bearer " + sharedPrefManager.getToken(),
+                        uploadParamModels[0].getContent(),
+                        imageUrl,
+                        uploadParamModels[0].getAddress());
+                call.enqueue(new Callback<ReportPostResponse>() {
+                    @Override
+                    public void onResponse(Call<ReportPostResponse> call, Response<ReportPostResponse> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(PostReportActivity.this, "Report post Successful", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(PostReportActivity.this, "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
                         }
-                    });
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(PostReportActivity.this, "Uploading Failed", Toast.LENGTH_SHORT).show();
-                }
-            });
+                    }
+
+                    @Override
+                    public void onFailure(Call<ReportPostResponse> call, Throwable t) {
+                        Toast.makeText(PostReportActivity.this, "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            })).addOnFailureListener(e -> Toast.makeText(PostReportActivity.this, "Uploading Failed", Toast.LENGTH_SHORT).show());
 
             return null;
         }

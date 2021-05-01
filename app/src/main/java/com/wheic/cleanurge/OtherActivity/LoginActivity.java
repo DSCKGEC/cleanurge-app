@@ -44,29 +44,21 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedPrefManager = new SharedPrefManager(this);
 
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        goBackButton.setOnClickListener(v -> finish());
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        loginBtn.setOnClickListener(v -> {
 
-                String email = emailInput.getText().toString().trim();
-                String password = passwordInput.getText().toString().trim();
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
 
-                if(email.isEmpty()){
-                    emailInput.setError("Enter valid information");
-                }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailInput.setError("Enter valid information");
-                }else if(password.isEmpty()){
-                    passwordInput.setError("Enter valid information");
-                }else{
-                    userLogin(email, password);
-                }
+            if (email.isEmpty()) {
+                emailInput.setError("Enter valid information");
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                emailInput.setError("Enter valid information");
+            } else if (password.isEmpty()) {
+                passwordInput.setError("Enter valid information");
+            } else {
+                userLogin(email, password);
             }
         });
 
@@ -81,25 +73,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
 
                     LoginResponse loginResponse = response.body();
 
-                    if(!loginResponse.getUser().getAdmin()){
+                    if (!loginResponse.getUser().getAdmin()) {
                         assert loginResponse != null;
                         sharedPrefManager.saveSession(loginResponse.getToken());
-//                                sharedPrefManager.setUser(loginResponse.getUser());
                         sharedPrefManager.setUserDetail(loginResponse.getUser());
                         sharedPrefManager.setUserID(loginResponse.getUser());
                         Intent homeIntent = new Intent(LoginActivity.this, MainActivity.class);
                         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(homeIntent);
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this, "Fishy Credential", Toast.LENGTH_SHORT).show();
                     }
 
-                }else{
+                } else {
                     loginBtn.setVisibility(View.VISIBLE);
                     loginProgress.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
@@ -110,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 loginBtn.setVisibility(View.VISIBLE);
                 loginProgress.setVisibility(View.GONE);
-                Toast.makeText(LoginActivity.this, "Error: "+ t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -119,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(sharedPrefManager.isLoggedIn()){
+        if (sharedPrefManager.isLoggedIn()) {
             Intent homeIntent = new Intent(LoginActivity.this, MainActivity.class);
             homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(homeIntent);

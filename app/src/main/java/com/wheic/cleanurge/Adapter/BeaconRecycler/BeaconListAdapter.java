@@ -30,7 +30,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         this.beaconList = beaconList;
     }
 
-    public void setOnItemClickListener(OnItemsClickListener listener){
+    public void setOnItemClickListener(OnItemsClickListener listener) {
         this.listener = listener;
     }
 
@@ -50,24 +50,21 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         holder.beaconCodeHeadingText.setText("Beacon: " + beaconList.get(position).getCode());
         holder.beaconAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + beaconList.get(position).getAddress()));
         holder.beaconLevelText.setText(Html.fromHtml("<b>" + "Level : " + "</b>" + beaconList.get(position).getLevel()));
-        if((80 <= level) && (level <= 100)){
+        if ((80 <= level) && (level <= 100)) {
             holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_red_alert_background));
-        }else if ((50 <= level) && (level <= 80)){
+        } else if ((50 <= level) && (level <= 80)) {
             holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_blue_alert_background));
-        }else{
+        } else {
             holder.beaconColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_green_alert_background));
         }
-        holder.wholeCardLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null){
-                    listener.onItemClick(
-                            beaconList.get(position),
-                            beaconList.get(position).getGeo().getCoordinates(),
-                            beaconList.get(position).getCode(),
-                            beaconList.get(position).getAddress(),
-                            beaconList.get(position).getLevel());
-                }
+        holder.wholeCardLayout.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(
+                        beaconList.get(position),
+                        beaconList.get(position).getGeo().getCoordinates(),
+                        beaconList.get(position).getCode(),
+                        beaconList.get(position).getAddress(),
+                        beaconList.get(position).getLevel());
             }
         });
     }
@@ -77,7 +74,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         return beaconList.size();
     }
 
-    public interface OnItemsClickListener{
+    public interface OnItemsClickListener {
         void onItemClick(Beacon beacon, List<Double> mapCord, String beaconCode, String beaconAddress, String beaconLevel);
     }
 

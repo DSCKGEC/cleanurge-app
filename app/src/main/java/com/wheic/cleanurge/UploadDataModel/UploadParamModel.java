@@ -2,7 +2,7 @@ package com.wheic.cleanurge.UploadDataModel;
 
 import android.net.Uri;
 
-public class UploadParamModel{
+public class UploadParamModel {
     private String content;
     private android.net.Uri Uri;
     private String address;

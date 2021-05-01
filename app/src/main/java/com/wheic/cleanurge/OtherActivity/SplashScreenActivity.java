@@ -35,9 +35,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 Intent nextIntent;
 
-                if(sharedPrefManager.isLoggedIn()){
+                if (sharedPrefManager.isLoggedIn()) {
                     nextIntent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                }else{
+                } else {
                     nextIntent = new Intent(SplashScreenActivity.this, GatewayActivity.class);
                 }
 

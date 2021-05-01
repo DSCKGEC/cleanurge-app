@@ -22,19 +22,9 @@ public class GatewayActivity extends AppCompatActivity {
         gotoLoginButton = findViewById(R.id.goToLoginButton);
         gotoCreateAccButton = findViewById(R.id.goToCreateAccButton);
 
-        gotoLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(GatewayActivity.this, LoginActivity.class));
-            }
-        });
+        gotoLoginButton.setOnClickListener(v -> startActivity(new Intent(GatewayActivity.this, LoginActivity.class)));
 
-        gotoCreateAccButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(GatewayActivity.this, CreateAccountActivity.class));
-            }
-        });
+        gotoCreateAccButton.setOnClickListener(v -> startActivity(new Intent(GatewayActivity.this, CreateAccountActivity.class)));
 
     }
 }

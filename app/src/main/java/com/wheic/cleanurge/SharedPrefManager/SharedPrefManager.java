@@ -11,48 +11,39 @@ public class SharedPrefManager {
     private Context context;
     private SharedPreferences.Editor editor;
 
-
     public SharedPrefManager(Context context) {
         this.context = context;
     }
 
-    public void saveSession(String token){
+    public void saveSession(String token) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putString("Token", token);
         editor.apply();
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        if(sharedPreferences.getString("Token", null) == null){
+        if (sharedPreferences.getString("Token", null) == null) {
             return false; // logged out
-        }else{
+        } else {
             return true; // logged in
         }
     }
 
-    public User getUserForID(){
+    public User getUserForID() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-//        return new User(sharedPreferences.getString("UserName", null),
-//                sharedPreferences.getString("UserEmail", null),
-//                sharedPreferences.getInt("UserPhone", -1),
-//                sharedPreferences.getString("UserAddress", null));
         return new User(sharedPreferences.getString("UserID", null));
     }
 
-    public void setUserID(User user){
+    public void setUserID(User user) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putString("UserID", user.getId());
-//        editor.putString("UserName", user.getName());
-//        editor.putString("UserEmail", user.getEmail());
-//        editor.putInt("UserPhone", user.getPhone());
-//        editor.putString("UserAddress", user.getAddress());
         editor.apply();
     }
 
-    public User getUserDetails(){
+    public User getUserDetails() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(sharedPreferences.getString("UserName", null),
                 sharedPreferences.getString("UserEmail", null),
@@ -60,7 +51,7 @@ public class SharedPrefManager {
                 sharedPreferences.getString("UserAddress", null));
     }
 
-    public void setUserDetail(User user){
+    public void setUserDetail(User user) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putString("UserName", user.getName());
@@ -70,12 +61,12 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    public String getToken(){
+    public String getToken() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("Token", null);
     }
 
-    public void logOut(){
+    public void logOut() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.clear();

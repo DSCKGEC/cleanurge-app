@@ -55,68 +55,64 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
         return new ViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.reportSerialText.setText(""+(position + 1));
+        holder.reportSerialText.setText("" + (position + 1));
         holder.reportContentHeadingText.setText(reportList.get(position).getContent());
-        if(!reportList.get(position).getResolved()){
+        if (!reportList.get(position).getResolved()) {
             holder.reportColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_red_alert_background));
-        }else{
+        } else {
             holder.reportColorAlertView.setBackground(ContextCompat.getDrawable(context, R.drawable.alertview_green_alert_background));
         }
 
-        holder.wholeReportCardLayout.setOnClickListener(new View.OnClickListener() {
+        holder.wholeReportCardLayout.setOnClickListener(v -> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
+            holder.imageLoadProgressbar.setVisibility(View.VISIBLE);
+            if (!reportList.get(position).isExpanded()) {
+                reportList.get(position).setExpanded(true);
+                holder.reportExpandLayout.setVisibility(View.VISIBLE);
+                Glide.with(holder.itemView.getContext())
+                        .asBitmap()
+                        .load(reportList.get(position).getPictureUrl())
+                        .override(800, 400)
+                        .timeout(60000)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .skipMemoryCache(true)
+                        .placeholder(R.drawable.image_loading_failed_placeholder)
+                        .listener(new RequestListener<Bitmap>() {
+                            @Override
+                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                                holder.imageLoadProgressbar.setVisibility(View.GONE);
+                                Toast.makeText(context, "Image Load Failed", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
 
-                holder.imageLoadProgressbar.setVisibility(View.VISIBLE);
-                if(!reportList.get(position).isExpanded()) {
-                    reportList.get(position).setExpanded(true);
-                    holder.reportExpandLayout.setVisibility(View.VISIBLE);
-                    Glide.with(holder.itemView.getContext())
-                            .asBitmap()
-                            .load(reportList.get(position).getPictureUrl())
-                            .override(800, 400)
-                            .timeout(60000)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .skipMemoryCache(true)
-                            .placeholder(R.drawable.image_loading_failed_placeholder)
-                            .listener(new RequestListener<Bitmap>() {
-                                @Override
-                                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
-                                    holder.imageLoadProgressbar.setVisibility(View.GONE);
-                                    Toast.makeText(context, "Image Load Failed", Toast.LENGTH_SHORT).show();
-                                    return false;
-                                }
+                            @Override
+                            public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                                holder.imageLoadProgressbar.setVisibility(View.GONE);
+                                return false;
+                            }
+                        })
+                        .into(new SimpleTarget<Bitmap>() {
+                            @Override
+                            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                holder.reportPostImage.setImageBitmap(resource);
+                            }
+                        });
 
-                                @Override
-                                public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
-                                    holder.imageLoadProgressbar.setVisibility(View.GONE);
-                                    return false;
-                                }
-                            })
-                            .into(new SimpleTarget<Bitmap>() {
-                                @Override
-                                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                                    holder.reportPostImage.setImageBitmap(resource);
-                                }
-                            });
-
-                    String[] date_time = getLocalDateTime(reportList.get(position).getCreatedAt());
+                String[] date_time = getLocalDateTime(reportList.get(position).getCreatedAt());
 
 
-                    holder.reportAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + reportList.get(position).getAddress()));
-                    holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0]));
-                    holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[1] + " "+ date_time[2]));
+                holder.reportAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + reportList.get(position).getAddress()));
+                holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0]));
+                holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[1] + " " + date_time[2]));
 
-                }else {
-                    reportList.get(position).setExpanded(false);
-                    holder.reportExpandLayout.setVisibility(View.GONE);
-                }
-
+            } else {
+                reportList.get(position).setExpanded(false);
+                holder.reportExpandLayout.setVisibility(View.GONE);
             }
+
         });
 
     }

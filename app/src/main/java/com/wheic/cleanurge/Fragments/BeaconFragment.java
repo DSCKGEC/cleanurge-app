@@ -65,17 +65,14 @@ public class BeaconFragment extends Fragment {
         sharedPrefManager = new SharedPrefManager(getActivity());
 
         fetchBeaconList();
-        beaconListCrashMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                beaconListCrashMessage.setVisibility(View.GONE);
-                fetchBeaconList();
-            }
+        beaconListCrashMessage.setOnClickListener(v -> {
+            beaconListCrashMessage.setVisibility(View.GONE);
+            fetchBeaconList();
         });
 
     }
 
-    private void fetchBeaconList(){
+    private void fetchBeaconList() {
         beaconListProgressBar.setVisibility(View.VISIBLE);
         Call<BeaconListResponse> call = RetrofitClient.getInstance().getApi().fetchBeacons("Bearer " + sharedPrefManager.getToken());
 
@@ -83,30 +80,26 @@ public class BeaconFragment extends Fragment {
             @Override
             public void onResponse(Call<BeaconListResponse> call, Response<BeaconListResponse> response) {
 
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     beaconInfoList.setVisibility(View.VISIBLE);
                     beaconList = new ArrayList<>(response.body().getBeacons());
                     beaconListAdapter = new BeaconListAdapter(getActivity(), beaconList);
                     beaconInfoList.setAdapter(beaconListAdapter);
-                    if(beaconList.size() == 0) {
+                    if (beaconList.size() == 0) {
                         beaconListNoItemMessage.setVisibility(View.VISIBLE);
                     }
-                    beaconListAdapter.setOnItemClickListener(new BeaconListAdapter.OnItemsClickListener() {
-                        @Override
-                        public void onItemClick(Beacon beacon, List<Double> mapCord, String beaconCode, String beaconAddress, String beaconLevel) {
-//                            Intent mapIntent = new Intent(getActivity(), LoginActivity.class);
-                            Intent mapIntent = new Intent(getActivity(), MapLocationActivity.class);
-                            mapIntent.putExtra("BeaconLng", mapCord.get(0));
-                            mapIntent.putExtra("BeaconLat", mapCord.get(1));
-                            mapIntent.putExtra("BeaconCode", beaconCode);
-                            mapIntent.putExtra("BeaconAddress", beaconAddress);
-                            mapIntent.putExtra("BeaconLevel", beaconLevel);
-                            startActivity(mapIntent);
+                    beaconListAdapter.setOnItemClickListener((beacon, mapCord, beaconCode, beaconAddress, beaconLevel) -> {
+                        Intent mapIntent = new Intent(getActivity(), MapLocationActivity.class);
+                        mapIntent.putExtra("BeaconLng", mapCord.get(0));
+                        mapIntent.putExtra("BeaconLat", mapCord.get(1));
+                        mapIntent.putExtra("BeaconCode", beaconCode);
+                        mapIntent.putExtra("BeaconAddress", beaconAddress);
+                        mapIntent.putExtra("BeaconLevel", beaconLevel);
+                        startActivity(mapIntent);
 
-                        }
                     });
 
-                }else{
+                } else {
                     beaconListCrashMessage.setVisibility(View.VISIBLE);
                     beaconInfoList.setVisibility(View.GONE);
                     Toast.makeText(getActivity(), "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
@@ -119,8 +112,8 @@ public class BeaconFragment extends Fragment {
             public void onFailure(Call<BeaconListResponse> call, Throwable t) {
                 beaconListCrashMessage.setVisibility(View.VISIBLE);
                 beaconInfoList.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Error2: "+ t.getMessage(), Toast.LENGTH_SHORT).show();
-                beaconListProgressBar.setVisibility(View.VISIBLE);
+                Toast.makeText(getActivity(), "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                beaconListProgressBar.setVisibility(View.GONE);
             }
         });
     }

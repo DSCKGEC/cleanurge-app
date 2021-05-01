@@ -43,13 +43,6 @@ The idea is to have wireless beacons configured at various public bins to detect
 **This repository hosts only the hardware side code**
 
 ```
-/
-  ├── .github/            github related files like PR templates, contribution guidelines
-  ├── .gitignore          stores files and directories to be ignored in commits
-  ├── LICENSE             the open source license
-  ├── code_of_conduct.md  code of conduct for open source contribution
-  ├── contributing.md     contribution guidelines
-  └── readme.md           details and instructions about the project go here
 ```
 
 ## Project roadmap
@@ -58,15 +51,19 @@ The idea is to have wireless beacons configured at various public bins to detect
 
 The project currently does the following things.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- The self-reported issues are visible with image, address and time
+- The beacon informations are visible with exact map location
+- User can track resolved and unresolved issues
 
 See below for our future steps.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Showing self-reported issues with exact location
+- Adding recycler pagination
+- Real-time data fetching
+- Real-time network status checking
+- Bug Fixes
+- UI upgrades
+- and lot more...
 
 ## Getting started
 

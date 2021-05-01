@@ -72,10 +72,14 @@ Below are a few prerequisites and installation guides:
 
 ### Prerequisites
 
+1. Android Development using JAVA 8
+2. Working with API
+
 #### Softwares needed
 
--   Android Studio
--   JDK 8+
+-   [Android Studio 4.1](https://developer.android.com/studio)
+-   [Latest JDK](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
+-   [Postman](https://www.postman.com/downloads/)
 
 #### Knowledge needed
 
@@ -86,12 +90,24 @@ The best way to learn the following is to google each and everything!
     -   What are repositories (local - remote - upstream), issues, pull requests
     -   How to clone a repository, how to fork a repository, how to set upstreams
     -   Adding, committing, pulling, pushing changes to remote repositories
+   
+-   For Android:
+
+    -   [Android Development with JAVA](https://developer.android.com/codelabs/build-your-first-android-app#0)
+    -   [Retrofit for API integration](https://square.github.io/retrofit/)
+
+-   For Postman:
+ 
+    -   [For testing API](https://learning.postman.com/docs/getting-started/introduction/)
+
 
 ### Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
-
+- Fork and clone the repository.
+- Open Android Studio --> New --> Project from Version Control... ---> Paste the repo url ---> Clone
+- Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
 
 ## Live demo
 

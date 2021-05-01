@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229450656178",
+    "project_id": "cleanurgeimgstore",
+    "storage_bucket": "cleanurgeimgstore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229450656178:android:4af93b3dc689769993dcab",
+        "android_client_info": {
+          "package_name": "com.wheic.cleanurge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229450656178-qd3rjot04mk7nevqm243pbkkljo6di71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbmWalbLeBuIiqeNF23KfJliq6dBpOfnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229450656178-qd3rjot04mk7nevqm243pbkkljo6di71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

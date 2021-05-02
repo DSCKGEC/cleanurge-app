@@ -52,7 +52,8 @@ The idea is to have wireless beacons configured at various public bins to detect
 The project currently does the following things.
 
 - The self-reported issues are visible with image, address and time
-- The beacon informations are visible with exact map location
+- The beacon information is visible with exact map location
+- User can add new issue with report title, image and address
 - User can track resolved and unresolved issues
 
 See below for our future steps.

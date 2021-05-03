@@ -38,13 +38,6 @@ Our project serves to prevent overaccumulation of waste at public bins by mainta
 ### The idea
 The idea is to have wireless beacons configured at various public bins to detect and measure the level of waste accumulation at the bins. When the level at any of the bins cross a threshold, a request is triggered to a web server that is then used to send notifications to the authorities in an app as well as web based software. The mobile application also supports the feature for individuals living in the locality to report of any waste accumulation directly to the authorities.
 
-## Project structure
-
-**This repository hosts only the hardware side code**
-
-```
-```
-
 ## Project roadmap
 
 > TODO: Features to be updated
@@ -111,6 +104,11 @@ A step by step series of instructions that tell you how to get the project runni
 - Fork and clone the repository.
 - Open Android Studio --> New --> Project from Version Control... ---> Paste the repo url ---> Clone
 - Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
+- There's a manual user verification system at the server's end, so newly created account will stay unverified and unable to login. At least for now. So use these Test Email and Passwords to login : 
+    -   test@user1.com --- testuser@1
+    -   test@user2.com --- testuser@2
+    -   test@user3.com --- testuser@3
+    -   test@user6.com --- testuser@6
 
 ## Live demo
 

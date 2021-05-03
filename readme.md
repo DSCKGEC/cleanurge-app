@@ -104,7 +104,7 @@ A step by step series of instructions that tell you how to get the project runni
 - Fork and clone the repository.
 - Open Android Studio --> New --> Project from Version Control... ---> Paste the repo url ---> Clone
 - Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
-- There's a manual user verification system at the server's end, so newly created account will stay unverified and unable to login. At least for now. So use these Test Email and Passwords to login : 
+- There's a manual user verification system at the server's end, so newly created account will stay unverified and unable to login. At least for now. So use any of these Test Email and Passwords to login : 
     -   test@user1.com --- testuser@1
     -   test@user2.com --- testuser@2
     -   test@user3.com --- testuser@3

@@ -86,14 +86,14 @@ The best way to learn the following is to google each and everything!
     -   How to clone a repository, how to fork a repository, how to set upstreams
     -   Adding, committing, pulling, pushing changes to remote repositories
    
--   For Android:
+-   Android:
 
     -   [Android Development with JAVA](https://developer.android.com/codelabs/build-your-first-android-app#0)
     -   [Retrofit for API integration](https://square.github.io/retrofit/)
 
--   For Postman:
+-   Postman:
  
-    -   [For testing API](https://learning.postman.com/docs/getting-started/introduction/)
+    -   [Testing API](https://learning.postman.com/docs/getting-started/introduction/)
 
 
 

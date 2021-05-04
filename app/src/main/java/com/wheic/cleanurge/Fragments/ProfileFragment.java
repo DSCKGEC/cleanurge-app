@@ -77,7 +77,8 @@ public class ProfileFragment extends Fragment {
 
         currentUserName.setText(sharedPrefManager.getUserDetails().getName());
         currentUserEmail.setText(sharedPrefManager.getUserDetails().getEmail());
-        currentUserPhone.setText(String.valueOf(sharedPrefManager.getUserDetails().getPhone()));
+//        currentUserPhone.setText(String.valueOf(sharedPrefManager.getUserDetails().getPhone()));
+        currentUserPhone.setText(sharedPrefManager.getUserDetails().getPhone());
 
         fetchPieDataList();
 

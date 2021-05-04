@@ -24,7 +24,7 @@ public class User {
     private String password;
     @SerializedName("phone")
     @Expose
-    private Integer phone;
+    private String phone;
     @SerializedName("address")
     @Expose
     private String address;
@@ -44,7 +44,7 @@ public class User {
                 String name,
                 String email,
                 String password,
-                Integer phone,
+                String phone,
                 String address,
                 String createdAt,
                 String updatedAt,
@@ -64,7 +64,7 @@ public class User {
 
     public User(String name,
                 String email,
-                int phone,
+                String phone,
                 String address){
         this.name = name;
         this.email = email;
@@ -124,11 +124,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

@@ -23,7 +23,7 @@ public interface ApiInterface {
             @Field("name") String name,
             @Field("email") String email,
             @Field("password") String password,
-            @Field("phone") int phone,
+            @Field("phone") String phone,
             @Field("address") String address
     );
 
@@ -33,11 +33,6 @@ public interface ApiInterface {
             @Field("email") String email,
             @Field("password") String password
     );
-
-    @GET("api/user/{id}")
-    Call<UserResponse> getUsers(
-            @Path("id") String uID,
-            @Header("Authorization") String authToken);
 
     @GET("api/beacon")
     Call<BeaconListResponse> fetchBeacons(@Header("Authorization") String authToken);

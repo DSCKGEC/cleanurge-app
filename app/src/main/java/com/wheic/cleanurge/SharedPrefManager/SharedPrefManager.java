@@ -47,7 +47,7 @@ public class SharedPrefManager {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(sharedPreferences.getString("UserName", null),
                 sharedPreferences.getString("UserEmail", null),
-                sharedPreferences.getInt("UserPhone", -1),
+                sharedPreferences.getString("UserPhone", null),
                 sharedPreferences.getString("UserAddress", null));
     }
 
@@ -56,7 +56,7 @@ public class SharedPrefManager {
         editor = sharedPreferences.edit();
         editor.putString("UserName", user.getName());
         editor.putString("UserEmail", user.getEmail());
-        editor.putInt("UserPhone", user.getPhone());
+        editor.putString("UserPhone", user.getPhone());
         editor.putString("UserAddress", user.getAddress());
         editor.apply();
     }

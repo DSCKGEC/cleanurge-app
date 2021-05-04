@@ -85,7 +85,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 .register(userName,
                         userEmail,
                         userPassword,
-                        Integer.parseInt(userPhone),
+                        userPhone,
                         userAddress);
         call.enqueue(new Callback<RegisterResponse>() {
             @Override

@@ -15,12 +15,12 @@ public class ReportAuthor {
     private String email;
     @SerializedName("phone")
     @Expose
-    private Integer phone;
+    private String phone;
     @SerializedName("address")
     @Expose
     private String address;
 
-    public ReportAuthor(String id, String name, String email, Integer phone, String address) {
+    public ReportAuthor(String id, String name, String email, String phone, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -52,11 +52,11 @@ public class ReportAuthor {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

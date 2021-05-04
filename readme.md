@@ -38,35 +38,26 @@ Our project serves to prevent overaccumulation of waste at public bins by mainta
 ### The idea
 The idea is to have wireless beacons configured at various public bins to detect and measure the level of waste accumulation at the bins. When the level at any of the bins cross a threshold, a request is triggered to a web server that is then used to send notifications to the authorities in an app as well as web based software. The mobile application also supports the feature for individuals living in the locality to report of any waste accumulation directly to the authorities.
 
-## Project structure
-
-**This repository hosts only the hardware side code**
-
-```
-/
-  ├── .github/            github related files like PR templates, contribution guidelines
-  ├── .gitignore          stores files and directories to be ignored in commits
-  ├── LICENSE             the open source license
-  ├── code_of_conduct.md  code of conduct for open source contribution
-  ├── contributing.md     contribution guidelines
-  └── readme.md           details and instructions about the project go here
-```
-
 ## Project roadmap
 
 > TODO: Features to be updated
 
 The project currently does the following things.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- The self-reported issues are visible with image, address and time
+- The beacon information is visible with exact map location
+- User can add new issue with report title, image and address
+- User can track resolved and unresolved issues
 
 See below for our future steps.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Showing self-reported issues with exact location
+- Adding recycler pagination
+- Real-time data fetching
+- Real-time network status checking
+- Bug Fixes
+- UI upgrades
+- and lot more...
 
 ## Getting started
 
@@ -75,10 +66,15 @@ Below are a few prerequisites and installation guides:
 
 ### Prerequisites
 
+1. Android Development using JAVA 8
+2. Working with API
+3. Using Firebase
+
 #### Softwares needed
 
--   Android Studio
--   JDK 8+
+-   [Android Studio 4.1](https://developer.android.com/studio)
+-   [Latest JDK](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
+-   [Postman](https://www.postman.com/downloads/)
 
 #### Knowledge needed
 
@@ -89,12 +85,30 @@ The best way to learn the following is to google each and everything!
     -   What are repositories (local - remote - upstream), issues, pull requests
     -   How to clone a repository, how to fork a repository, how to set upstreams
     -   Adding, committing, pulling, pushing changes to remote repositories
+   
+-   For Android:
+
+    -   [Android Development with JAVA](https://developer.android.com/codelabs/build-your-first-android-app#0)
+    -   [Retrofit for API integration](https://square.github.io/retrofit/)
+
+-   For Postman:
+ 
+    -   [For testing API](https://learning.postman.com/docs/getting-started/introduction/)
+
+
 
 ### Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
-
+- Fork and clone the repository.
+- Open Android Studio --> New --> Project from Version Control... ---> Paste the repo url ---> Clone
+- Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
+- There's a manual user verification system at the server's end, so newly created account will stay unverified and unable to login. At least for now. So use any of these Test Email and Passwords to login : 
+    -   test@user1.com --- testuser@1
+    -   test@user2.com --- testuser@2
+    -   test@user3.com --- testuser@3
+    -   test@user6.com --- testuser@6
 
 ## Live demo
 
@@ -105,6 +119,7 @@ A step by step series of instructions that tell you how to get the project runni
 - [JAVA](https://www.oracle.com/in/java/)
 - [Android Studio 4.1](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
+- [Firebase](https://firebase.google.com/docs/storage/android/start)
 
 ## Contributing
 

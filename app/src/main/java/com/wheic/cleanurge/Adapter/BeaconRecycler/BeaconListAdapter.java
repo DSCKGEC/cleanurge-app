@@ -47,7 +47,7 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
         double level = 23.456D;
 
         holder.beaconSerialText.setText("" + (position + 1));
-        holder.beaconCodeHeadingText.setText("Beacon: " + beaconList.get(position).getCode());
+        holder.beaconCodeHeadingText.setText(beaconList.get(position).getCode());
         holder.beaconAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + beaconList.get(position).getAddress()));
         holder.beaconLevelText.setText(Html.fromHtml("<b>" + "Level : " + "</b>" + beaconList.get(position).getLevel()));
         if ((80 <= level) && (level <= 100)) {

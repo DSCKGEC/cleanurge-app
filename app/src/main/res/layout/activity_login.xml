@@ -6,126 +6,155 @@
     android:layout_height="match_parent"
     tools:context=".OtherActivity.LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loginTopLayout"
+
+    <RelativeLayout
+        android:id="@+id/createAccTopLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginTopConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-2dp"
+                android:layout_marginEnd="-2dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/registration_background_design"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/goBackButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/rounded_button_layout"
+                android:gravity="center"
+                android:src="@drawable/go_back_white_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/createAccText"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="Login"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/goBackButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-2dp"
-            android:layout_marginEnd="-2dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/registration_background_design"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="-30dp"
+            android:layout_below="@+id/loginTopConstraintLayout">
 
-        <ImageButton
-            android:id="@+id/goBackButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/rounded_button_layout"
-            android:gravity="center"
-            android:src="@drawable/go_back_white_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_illustration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/loginText"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:text="Login"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/goBackButton"
-            app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
-            android:src="@drawable/login_illustration"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/loginEmailInput"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/more_rounded_borderless_secondary_blue_background"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingStart="20dp"
-        android:paddingEnd="10dp"
-        android:textColor="@color/primary_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTopLayout" />
-
-    <EditText
-        android:id="@+id/loginPasswordInput"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/more_rounded_borderless_secondary_blue_background"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingStart="20dp"
-        android:paddingEnd="10dp"
-        android:textColor="@color/primary_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEmailInput" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccTopLayout">
 
-        <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/rounded_button_layout"
-            android:text="Login"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/loginProgressbar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+            <EditText
+                android:id="@+id/loginEmailInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/primary_blue" />
 
-    </FrameLayout>
+            <EditText
+                android:id="@+id/loginPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/more_rounded_borderless_secondary_blue_background"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/primary_blue" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="20dp">
+
+                <Button
+                    android:id="@+id/loginBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_button_layout"
+                    android:text="Login"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/loginProgressbar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

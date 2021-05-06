@@ -181,9 +181,9 @@ public class ProfileFragment extends Fragment {
     private void setupPieChart() {
         reportPieChart.setDrawHoleEnabled(false);
         reportPieChart.setUsePercentValues(true);
-        reportPieChart.setEntryLabelTextSize(12);
+        reportPieChart.setEntryLabelTextSize(10f);
         reportPieChart.setEntryLabelColor(Color.BLACK);
-        reportPieChart.setCenterTextSize(17);
+//        reportPieChart.setCenterTextSize(10);
         reportPieChart.getDescription().setEnabled(false);
 
         Legend legend = reportPieChart.getLegend();

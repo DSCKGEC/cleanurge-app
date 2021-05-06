@@ -6,179 +6,196 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment">
 
-    <LinearLayout
-        android:id="@+id/userInfoLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/less_rounded_cornered_with_border_white_background"
-        android:orientation="vertical"
-        android:padding="20dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/currentUserName"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="John Doe"
-            android:textColor="@color/primary_blue"
-            android:textSize="27sp"
-            android:textStyle="bold" />
+            android:paddingBottom="40dp">
 
-        <TextView
-            android:id="@+id/currentUserEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="johndoe@gmail.com"
-            android:textColor="@color/primary_blue"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/currentUserPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="9684338203"
-            android:textColor="@color/primary_blue"
-            android:textSize="17sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/pieLayout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/less_rounded_cornered_with_border_white_background"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/userInfoLayout"
-        app:layout_constraintStart_toStartOf="@+id/userInfoLayout"
-        app:layout_constraintTop_toBottomOf="@+id/userInfoLayout">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/userReportPieChart"
+            <LinearLayout
+                android:id="@+id/userInfoLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/resolvedDetailPieErrorMessage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/pieFetchErrorMessageImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/pie_data_fetch_error"
-                    app:layout_constraintBottom_toTopOf="@+id/pieFetchErrorMessageText"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/less_rounded_cornered_with_border_white_background"
+                android:orientation="vertical"
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/pieFetchErrorMessageText"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/currentUserName"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Something went wrong!!! Tap to reload"
+                    android:text="John Doe"
                     android:textColor="@color/primary_blue"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/resolvedDetailPieNoItemMessage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/pieFetchNoItemMessageImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/no_pie_data_image"
-                    app:layout_constraintBottom_toTopOf="@+id/pieFetchNoItemMessageText"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="27sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/pieFetchNoItemMessageText"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/currentUserEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="johndoe@gmail.com"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/currentUserPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="9684338203"
+                    android:textColor="@color/primary_blue"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pieLayout"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/less_rounded_cornered_with_border_white_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/userInfoLayout"
+                app:layout_constraintStart_toStartOf="@+id/userInfoLayout"
+                app:layout_constraintTop_toBottomOf="@+id/userInfoLayout">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/userReportPieChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/resolvedDetailPieErrorMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/pieFetchErrorMessageImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/pie_data_fetch_error"
+                            app:layout_constraintBottom_toTopOf="@+id/pieFetchErrorMessageText"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pieFetchErrorMessageText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Something went wrong!!! Tap to reload"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/resolvedDetailPieNoItemMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/pieFetchNoItemMessageImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/no_pie_data_image"
+                            app:layout_constraintBottom_toTopOf="@+id/pieFetchNoItemMessageText"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pieFetchNoItemMessageText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="No reports has been issued yet!!!"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ProgressBar
+                        android:id="@+id/pieDataFetchProgressBar"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logoutLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_button_layout"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pieLayout">
+
+                <TextView
+                    android:id="@+id/logoutText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="No reports has been issued yet!!!"
-                    android:textColor="@color/primary_blue"
+                    android:text="Log Out"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:textStyle="bold" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-            <ProgressBar
-                android:id="@+id/pieDataFetchProgressBar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:visibility="gone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </FrameLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/logoutLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_button_layout"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pieLayout">
-
-        <TextView
-            android:id="@+id/logoutText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Log Out"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

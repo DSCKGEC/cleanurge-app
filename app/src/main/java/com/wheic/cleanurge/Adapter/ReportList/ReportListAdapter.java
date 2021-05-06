@@ -32,11 +32,16 @@ import com.bumptech.glide.request.transition.Transition;
 import com.wheic.cleanurge.ModelResponse.Reports.ReportWithAuthor;
 import com.wheic.cleanurge.R;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.ViewHolder> {
 
@@ -55,7 +60,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
         return new ViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+//    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.reportSerialText.setText("" + (position + 1));
@@ -103,10 +108,9 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
 
                 String[] date_time = getLocalDateTime(reportList.get(position).getCreatedAt());
 
-
                 holder.reportAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + reportList.get(position).getAddress()));
-                holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0]));
-                holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[1] + " " + date_time[2]));
+                holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0] + " " + date_time[1] + " " + date_time[2]));
+                holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[3] + " " + date_time[4]));
 
             } else {
                 reportList.get(position).setExpanded(false);
@@ -117,15 +121,27 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String[] getLocalDateTime(String isoDateTime) {
-        TemporalAccessor temporalAccessor = DateTimeFormatter.ISO_INSTANT.parse(isoDateTime);
-        Instant instant = Instant.from(temporalAccessor);
-        Date date = Date.from(instant);
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String[] getLocalDateTime(String isoDateTime){
+
+//        TemporalAccessor temporalAccessor = DateTimeFormatter.ISO_INSTANT.parse(isoDateTime);
+//        Instant instant = Instant.from(temporalAccessor);
+//        Date date = Date.from(instant);
+//        String[] date_time = date.toLocaleString().split(" ");
+//        Log.d("DATE: ", date_time[0]);
+//        Log.d("TIME: ", date_time[1]);
+//        Log.d("MERIDIAN: ", date_time[2]);
+//        return date_time;
+        Date date = null;
+        try {
+            date = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(isoDateTime.replaceAll("Z$", "+0000"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String[] date_time = date.toLocaleString().split(" ");
-        Log.d("DATE: ", date_time[0]);
-        Log.d("TIME: ", date_time[1]);
-        Log.d("MERIDIAN: ", date_time[2]);
+        Log.d("Result Date:", date_time[0] + date_time[1] + date_time[2]);
+        Log.d("Result Time:", date_time[3] + date_time[4]);
+
         return date_time;
     }
 

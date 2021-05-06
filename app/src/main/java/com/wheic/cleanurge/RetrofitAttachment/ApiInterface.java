@@ -52,5 +52,4 @@ public interface ApiInterface {
             @Path("id") String uID
     );
 
-
 }

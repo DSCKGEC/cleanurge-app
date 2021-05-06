@@ -94,6 +94,5 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
             beaconColorAlertView = itemView.findViewById(R.id.reportColorAlertView);
 
         }
-
     }
 }

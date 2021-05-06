@@ -109,8 +109,8 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
                 String[] date_time = getLocalDateTime(reportList.get(position).getCreatedAt());
 
                 holder.reportAddressText.setText(Html.fromHtml("<b>" + "Address : " + "</b>" + reportList.get(position).getAddress()));
-                holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0] + " " + date_time[1] + " " + date_time[2]));
-                holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[3] + " " + date_time[4]));
+                holder.reportDateText.setText(Html.fromHtml("<b>Date : </b>" + date_time[0]));
+                holder.reportTimeText.setText(Html.fromHtml("<b>Time : </b>" + date_time[1] + " " + date_time[2]));
 
             } else {
                 reportList.get(position).setExpanded(false);
@@ -132,15 +132,18 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
 //        Log.d("TIME: ", date_time[1]);
 //        Log.d("MERIDIAN: ", date_time[2]);
 //        return date_time;
+
+        SimpleDateFormat resultDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aa");
         Date date = null;
         try {
             date = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(isoDateTime.replaceAll("Z$", "+0000"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String[] date_time = date.toLocaleString().split(" ");
-        Log.d("Result Date:", date_time[0] + date_time[1] + date_time[2]);
-        Log.d("Result Time:", date_time[3] + date_time[4]);
+        String[] date_time = resultDateTimeFormat.format(date).split(" ");
+
+        Log.d("Result Date:", date_time[0]);
+        Log.d("Result Time:",  date_time[1] + date_time[2]);
 
         return date_time;
     }

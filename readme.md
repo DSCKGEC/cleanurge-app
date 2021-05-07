@@ -94,6 +94,7 @@ The best way to learn the following is to google each and everything!
 -   Postman:
  
     -   [Testing API](https://learning.postman.com/docs/getting-started/introduction/)
+    -   You'll find all the API endpoints used in this project here -> https://cleanurge.herokuapp.com/docs/
 
 
 

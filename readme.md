@@ -21,6 +21,7 @@ This is the repo for the app part of project Cleanurge
 1. [Getting started](#getting-started)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
+1. [Current Issues](#current-issues)
 1. [Contributing](#contributing)
 1. [Authors](#authors)
 1. [License](#license)

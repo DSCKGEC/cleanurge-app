@@ -117,6 +117,15 @@ A step by step series of instructions that tell you how to get the project runni
 - [Retrofit](https://square.github.io/retrofit/)
 - [Firebase](https://firebase.google.com/docs/storage/android/start)
 
+## Current Issues
+
+- [1. Improve the layout of Login and CreateAccount screen](https://github.com/DSCKGEC/cleanurge-app/issues/7) 
+- [2. Merge all the Registration Activities in a single activity](https://github.com/DSCKGEC/cleanurge-app/issues/8)
+- [3. Add a filter in 'HomeFragment' to filter out the reported issues](https://github.com/DSCKGEC/cleanurge-app/issues/9)
+- [4. UI Upgrade](https://github.com/DSCKGEC/cleanurge-app/issues/3)
+- [5. Bug Fixes](https://github.com/DSCKGEC/cleanurge-app/issues/4)
+- [6. New Feature Request or Existing Feature Update](https://github.com/DSCKGEC/cleanurge-app/issues/5)
+
 ## Contributing
 
 Please read [contributing.md](contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.

@@ -94,9 +94,7 @@ The best way to learn the following is to google each and everything!
     -   [Testing API](https://learning.postman.com/docs/getting-started/introduction/)
     -   You'll find all the API endpoints used in this project here -> https://cleanurge.herokuapp.com/docs/
 
-
-
-### Installing
+## Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 

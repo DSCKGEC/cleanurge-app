@@ -127,6 +127,7 @@ A step by step series of instructions that tell you how to get the project runni
 - [Merge all the Registration Activities in a single activity](https://github.com/DSCKGEC/cleanurge-app/issues/8)
 - [Add a filter in 'HomeFragment' to filter out the reported issues](https://github.com/DSCKGEC/cleanurge-app/issues/9)
 - [Wrap all the EditTexts in the app with TextInputLayout](https://github.com/DSCKGEC/cleanurge-app/issues/10)
+- [Add an entry animation for the single report items in HomeFragment](https://github.com/DSCKGEC/cleanurge-app/issues/11)
 
 ## Contributing
 

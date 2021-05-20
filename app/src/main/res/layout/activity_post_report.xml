@@ -33,11 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
-            android:text="CleanUrge"
+            android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="80dp"
+            tools:layout_editor_absoluteY="8dp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -173,7 +175,7 @@
             android:layout_height="60dp"
             android:layout_gravity="end"
             android:gravity="center"
-            android:text="REPORT"
+            android:text="@string/report_button"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="13sp"

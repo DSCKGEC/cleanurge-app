@@ -37,7 +37,7 @@
                     android:id="@+id/currentUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="John Doe"
+                    android:text="@string/current_user_name"
                     android:textColor="@color/primary_blue"
                     android:textSize="27sp"
                     android:textStyle="bold" />
@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="johndoe@gmail.com"
+                    android:text="@string/current_user_email"
                     android:textColor="@color/primary_blue"
                     android:textSize="17sp" />
 
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="9684338203"
+                    android:text="@string/current_user_phone"
                     android:textColor="@color/primary_blue"
                     android:textSize="17sp" />
 
@@ -112,7 +112,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Something went wrong!!! Tap to reload"
+                            android:text="@string/something_went_wrong_tap_to_reload"
                             android:textColor="@color/primary_blue"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -146,7 +146,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="No reports has been issued yet!!!"
+                            android:text="@string/no_reports_issued"
                             android:textColor="@color/primary_blue"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -187,7 +187,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Log Out"
+                    android:text="@string/log_out"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />

@@ -3,4 +3,26 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_map_location">Map</string>
+    <string name="beacon_information">BEACON INFORMATION</string>
+    <string name="beacon_code_text">Beacon: Code</string>
+    <string name="beacon_address_text">Address: Code</string>
+    <string name="beacon_level_text">Level: Code</string>
+    <string name="create_account_text">Create Account</string>
+    <string name="beacon_serial_text">1</string>
+    <string name="report_content_heading_text">Garbage Dumped Outside Of Bin. Kindly Attend And Fix.</string>
+    <string name="report_serial_text">1</string>
+    <string name="go_to_login_button">Login</string>
+    <string name="create_account_text_view">New Here? Create Account</string>
+    <string name="login">Login</string>
+    <string name="report_button">Report</string>
+    <string name="server_time_out">Server Time Out !!!</string>
+    <string name="tap_to_reload">Tap to reload again</string>
+    <string name="no_beacon_added_yet">No Beacon has been added yet</string>
+    <string name="something_went_wrong">Something went wrong !!!</string>
+    <string name="no_reports_issued">No reports has been issued yet</string>
+    <string name="log_out">Log Out</string>
+    <string name="something_went_wrong_tap_to_reload">Something went wrong!!! Tap to reload</string>
+    <string name="current_user_phone">9684338203</string>
+    <string name="current_user_email">johndoe@gmail.com</string>
+    <string name="current_user_name">John Doe</string>
 </resources>

@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView"
             android:gravity="center"
-            android:text="CLEANURGE"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
             android:textColor="@color/primary_blue"
             android:textSize="40sp"
             android:textStyle="bold" />
@@ -52,7 +53,7 @@
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button_layout"
-            android:text="LOGIN"
+            android:text="@string/go_to_login_button"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/goToCreateAccButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="New Here? Create Account"
+                android:text="@string/create_account_text_view"
                 android:textColor="@color/primary_blue"
                 android:textSize="16sp" />
 

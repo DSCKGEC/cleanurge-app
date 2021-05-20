@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="1"
+                    android:text="@string/beacon_serial_text"
                     android:textColor="@color/primary_blue"
                     android:textSize="25sp" />
 

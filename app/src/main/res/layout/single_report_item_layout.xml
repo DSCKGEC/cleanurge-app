@@ -47,7 +47,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="@string/report_serial_text"
                         android:textColor="@color/primary_blue"
                         android:textSize="25sp" />
 
@@ -70,7 +70,7 @@
                         android:id="@+id/reportContentHeadingText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Garbage Dumped Outside Of Bin. Kindly Attend And Fix."
+                        android:text="@string/report_content_heading_text"
                         android:textColor="@color/primary_blue"
                         android:textSize="20sp"
                         android:textStyle="bold" />

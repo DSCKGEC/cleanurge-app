@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Server Time Out !!!"
+                android:text="@string/server_time_out"
                 android:textColor="@color/primary_blue"
                 android:textSize="30sp" />
 
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Tap to reload again"
+                android:text="@string/tap_to_reload"
                 android:textColor="@color/primary_blue"
                 android:textSize="30sp" />
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="No Beacon has been added yet"
+                android:text="@string/no_beacon_added_yet"
                 android:textColor="@color/primary_blue"
                 android:textSize="30sp" />
 

@@ -33,11 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center"
-            android:text="CleanUrge"
+            android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="80dp"
+            tools:layout_editor_absoluteY="8dp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -85,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="BEACON INFORMATION"
+                    android:text="@string/beacon_information"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -98,7 +100,7 @@
                 android:layout_marginTop="10dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
-                android:text="Beacon: Code"
+                android:text="@string/beacon_code_text"
                 android:textColor="@color/primary_blue"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -110,7 +112,7 @@
                 android:layout_marginTop="12dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
-                android:text="Address: Code"
+                android:text="@string/beacon_address_text"
                 android:textColor="@color/primary_blue"
                 android:textSize="18sp" />
 
@@ -121,7 +123,7 @@
                 android:layout_marginTop="5dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
-                android:text="Level: Code"
+                android:text="@string/beacon_level_text"
                 android:textColor="@color/primary_blue"
                 android:textSize="18sp" />
 

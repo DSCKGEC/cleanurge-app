@@ -122,7 +122,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
     }
 
 //    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String[] getLocalDateTime(String isoDateTime){
+    private String[] getLocalDateTime(String isoDateTime) {
 
 //        TemporalAccessor temporalAccessor = DateTimeFormatter.ISO_INSTANT.parse(isoDateTime);
 //        Instant instant = Instant.from(temporalAccessor);
@@ -175,7 +175,6 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
             reportExpandLayout = itemView.findViewById(R.id.reportExpandLayout);
             reportColorAlertView = itemView.findViewById(R.id.reportColorAlertView);
             imageLoadProgressbar = itemView.findViewById(R.id.imageLoadProgressbar);
-
 
         }
     }

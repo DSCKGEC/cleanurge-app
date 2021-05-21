@@ -44,7 +44,8 @@ public class BeaconListAdapter extends RecyclerView.Adapter<BeaconListAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull BeaconListAdapter.ViewHolder holder, int position) {
 
-        double level = 23.456D;
+        //double level = Double.parseDouble(beaconList.get(position).getLevel());
+        double level = 23.56D;
 
         holder.beaconSerialText.setText("" + (position + 1));
         holder.beaconCodeHeadingText.setText(beaconList.get(position).getCode());

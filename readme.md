@@ -16,15 +16,15 @@ This is the repo for the app part of project Cleanurge
 ## Contents
 
 1. [Description](#description)
-1. [Project structure](#project-structure)
-1. [Project roadmap](#project-roadmap)
-1. [Getting started](#getting-started)
-1. [Live demo](#live-demo)
-1. [Built with](#built-with)
-1. [Contributing](#contributing)
-1. [Authors](#authors)
-1. [License](#license)
-1. [Acknowledgments](#acknowledgments)
+2. [Project roadmap](#project-roadmap)
+3. [Getting started](#getting-started)
+4. [How the app looks like](#how-the-app-looks-like)
+5. [Built with](#built-with)
+6. [Current Issues](#current-issues)
+7. [Contributing](#contributing)
+8. [Authors](#authors)
+9. [License](#license)
+10. [Acknowledgments](#acknowledgments)
 
 ## Description
 
@@ -39,8 +39,6 @@ Our project serves to prevent overaccumulation of waste at public bins by mainta
 The idea is to have wireless beacons configured at various public bins to detect and measure the level of waste accumulation at the bins. When the level at any of the bins cross a threshold, a request is triggered to a web server that is then used to send notifications to the authorities in an app as well as web based software. The mobile application also supports the feature for individuals living in the locality to report of any waste accumulation directly to the authorities.
 
 ## Project roadmap
-
-> TODO: Features to be updated
 
 The project currently does the following things.
 
@@ -94,25 +92,27 @@ The best way to learn the following is to google each and everything!
 -   Postman:
  
     -   [Testing API](https://learning.postman.com/docs/getting-started/introduction/)
+    -   You'll find all the API endpoints used in this project here -> https://cleanurge.herokuapp.com/docs/
 
-
-
-### Installing
+## Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
 - Fork and clone the repository.
 - Open Android Studio --> New --> Project from Version Control... ---> Paste the repo url ---> Clone
 - Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
-- There's a manual user verification system at the server's end, so newly created account will stay unverified and unable to login. At least for now. So use any of these Test Email and Passwords to login : 
-    -   test@user1.com --- testuser@1
-    -   test@user2.com --- testuser@2
-    -   test@user3.com --- testuser@3
-    -   test@user6.com --- testuser@6
 
-## Live demo
+## How the app looks like
 
-> TODO: deploy over heroku or netlify or some other platform with CI/CD support
+<img src="https://user-images.githubusercontent.com/73014152/117626235-833cad00-b194-11eb-97b6-331d12ebc238.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626245-86379d80-b194-11eb-8e58-1bc309b9353a.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626258-88016100-b194-11eb-8ed0-cab345a615fc.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626265-8a63bb00-b194-11eb-9eeb-3498a8349c60.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626280-8cc61500-b194-11eb-9cee-6274e6530c5b.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626287-8e8fd880-b194-11eb-9cc4-e1e239933bcb.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626294-90599c00-b194-11eb-9139-ec322f28c73f.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73014152/117626301-93548c80-b194-11eb-96b9-acec506a22a3.jpg" width = "210" height = "450">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 ## Built with
 
@@ -120,6 +120,14 @@ A step by step series of instructions that tell you how to get the project runni
 - [Android Studio 4.1](https://developer.android.com/studio)
 - [Retrofit](https://square.github.io/retrofit/)
 - [Firebase](https://firebase.google.com/docs/storage/android/start)
+
+## Current Issues
+
+- [Improve the layout of Login and CreateAccount screen](https://github.com/DSCKGEC/cleanurge-app/issues/7) 
+- [Merge all the Registration Activities in a single activity](https://github.com/DSCKGEC/cleanurge-app/issues/8)
+- [Add a filter in 'HomeFragment' to filter out the reported issues](https://github.com/DSCKGEC/cleanurge-app/issues/9)
+- [Wrap all the EditTexts in the app with TextInputLayout](https://github.com/DSCKGEC/cleanurge-app/issues/10)
+- [Add an entry animation for the single report items in HomeFragment](https://github.com/DSCKGEC/cleanurge-app/issues/11)
 
 ## Contributing
 

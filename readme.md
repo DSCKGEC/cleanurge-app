@@ -128,6 +128,10 @@ A step by step series of instructions that tell you how to get the project runni
 - [Add a filter in 'HomeFragment' to filter out the reported issues](https://github.com/DSCKGEC/cleanurge-app/issues/9)
 - [Wrap all the EditTexts in the app with TextInputLayout](https://github.com/DSCKGEC/cleanurge-app/issues/10)
 - [Add an entry animation for the single report items in HomeFragment](https://github.com/DSCKGEC/cleanurge-app/issues/11)
+- [Add a toggle visibility of password in Login and CreateAccount Section](https://github.com/DSCKGEC/cleanurge-app/issues/12)
+- [Convert all the HardCoded text in the XML files to String Resources](https://github.com/DSCKGEC/cleanurge-app/issues/13)
+- [Remove the character '#' from all the Beacon CodeName in Beacon List](https://github.com/DSCKGEC/cleanurge-app/issues/14)
+- [Add character limitation for Report Content Title and Report Address in PostReportActivity](https://github.com/DSCKGEC/cleanurge-app/issues/15)
 
 ## Contributing
 

@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
                 } else {
                     reportListCrashMessage.setVisibility(View.VISIBLE);
                     reportInfoList.setVisibility(View.GONE);
-                    Toast.makeText(getActivity(), "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR1: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
 
                 reportListProgressBar.setVisibility(View.GONE);
@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment {
             public void onFailure(Call<ReportUserGetResponse> call, Throwable t) {
                 reportListCrashMessage.setVisibility(View.VISIBLE);
                 reportInfoList.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 reportListProgressBar.setVisibility(View.GONE);
             }
         });

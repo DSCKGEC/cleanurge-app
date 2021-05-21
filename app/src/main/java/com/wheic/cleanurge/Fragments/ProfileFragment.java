@@ -136,7 +136,7 @@ public class ProfileFragment extends Fragment {
                     resolvedDetailPieNoItemMessage.setVisibility(View.GONE);
                     resolvedDetailPieErrorMessage.setVisibility(View.VISIBLE);
                     reportPieChart.setVisibility(View.GONE);
-                    Toast.makeText(getActivity(), "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR1: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
 
                 pieDataFetchProgressBar.setVisibility(View.GONE);
@@ -148,7 +148,7 @@ public class ProfileFragment extends Fragment {
                 resolvedDetailPieNoItemMessage.setVisibility(View.GONE);
                 resolvedDetailPieErrorMessage.setVisibility(View.VISIBLE);
                 reportPieChart.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 pieDataFetchProgressBar.setVisibility(View.GONE);
             }
         });

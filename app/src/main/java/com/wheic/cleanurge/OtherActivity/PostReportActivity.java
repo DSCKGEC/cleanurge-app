@@ -80,11 +80,11 @@ public class PostReportActivity extends AppCompatActivity {
             newReportAddressInputText = newReportAddressInput.getText().toString().trim();
 
             if (newReportTitleInputText.isEmpty()) {
-                newReportTitleInput.setError("Report Content can't be empty");
+                newReportTitleInput.setError("TODO FIX MESSAGE");
             } else if (newReportAddressInputText.isEmpty()) {
-                newReportAddressInput.setError("Report Address can't be empty");
+                newReportAddressInput.setError("TODO FIX MESSAGE");
             } else if (imageUri == null) {
-                Toast.makeText(PostReportActivity.this, "No image is selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostReportActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
             } else {
                 uploadImageToFireStorage(newReportTitleInputText, imageUri, newReportAddressInputText);
             }
@@ -114,7 +114,7 @@ public class PostReportActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startCropActivity();
             } else {
-                Toast.makeText(this, "Camera Permission Needed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -141,7 +141,7 @@ public class PostReportActivity extends AppCompatActivity {
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
 
                 assert result != null;
-                Toast.makeText(this, "Possible Error: " + result.getError().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "TODO FIX MESSAGE ERROR: " + result.getError().getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -165,18 +165,18 @@ public class PostReportActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ReportPostResponse> call, Response<ReportPostResponse> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(PostReportActivity.this, "Report post Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PostReportActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(PostReportActivity.this, "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PostReportActivity.this, "TODO FIX MESSAGE ERROR1: " + response.message(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ReportPostResponse> call, Throwable t) {
-                        Toast.makeText(PostReportActivity.this, "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PostReportActivity.this, "TODO FIX MESSAGE ERROR1: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-            })).addOnFailureListener(e -> Toast.makeText(PostReportActivity.this, "Uploading Failed", Toast.LENGTH_SHORT).show());
+            })).addOnFailureListener(e -> Toast.makeText(PostReportActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show());
 
             return null;
         }

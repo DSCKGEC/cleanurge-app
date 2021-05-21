@@ -89,7 +89,7 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Vi
                             @Override
                             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
                                 holder.imageLoadProgressbar.setVisibility(View.GONE);
-                                Toast.makeText(context, "Image Load Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
                                 return false;
                             }
 

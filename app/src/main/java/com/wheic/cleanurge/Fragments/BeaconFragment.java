@@ -102,7 +102,7 @@ public class BeaconFragment extends Fragment {
                 } else {
                     beaconListCrashMessage.setVisibility(View.VISIBLE);
                     beaconInfoList.setVisibility(View.GONE);
-                    Toast.makeText(getActivity(), "Error1: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR1: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
 
                 beaconListProgressBar.setVisibility(View.GONE);
@@ -112,7 +112,7 @@ public class BeaconFragment extends Fragment {
             public void onFailure(Call<BeaconListResponse> call, Throwable t) {
                 beaconListCrashMessage.setVisibility(View.VISIBLE);
                 beaconInfoList.setVisibility(View.GONE);
-                Toast.makeText(getActivity(), "Error2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "TODO FIX MESSAGE ERROR2: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 beaconListProgressBar.setVisibility(View.GONE);
             }
         });

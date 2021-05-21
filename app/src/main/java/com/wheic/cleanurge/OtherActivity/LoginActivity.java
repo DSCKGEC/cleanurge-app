@@ -52,11 +52,11 @@ public class LoginActivity extends AppCompatActivity {
             String password = passwordInput.getText().toString().trim();
 
             if (email.isEmpty()) {
-                emailInput.setError("Enter valid information");
+                emailInput.setError("TODO FIX MESSAGE 1");
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailInput.setError("Enter valid information");
+                emailInput.setError("TODO FIX MESSAGE 2");
             } else if (password.isEmpty()) {
-                passwordInput.setError("Enter valid information");
+                passwordInput.setError("TODO FIX MESSAGE 3");
             } else {
                 userLogin(email, password);
             }
@@ -85,15 +85,15 @@ public class LoginActivity extends AppCompatActivity {
                         Intent homeIntent = new Intent(LoginActivity.this, MainActivity.class);
                         homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(homeIntent);
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Fishy Credential", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
                     loginBtn.setVisibility(View.VISIBLE);
                     loginProgress.setVisibility(View.GONE);
-                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "TODO FIX MESSAGE", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 loginBtn.setVisibility(View.VISIBLE);
                 loginProgress.setVisibility(View.GONE);
-                Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "TODO FIX MESSAGE ERROR: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -132,7 +132,7 @@ A step by step series of instructions that tell you how to get the project runni
 - [Convert all the HardCoded text in the XML files to String Resources](https://github.com/DSCKGEC/cleanurge-app/issues/13)
 - [Remove the character '#' from all the Beacon CodeName in Beacon List](https://github.com/DSCKGEC/cleanurge-app/issues/14)
 - [Add character limitation for Report Content Title and Report Address in PostReportActivity](https://github.com/DSCKGEC/cleanurge-app/issues/15)
-- [Convert all the Toast and the EditText Error Messages with appropiate message text](Convert all the Toast and the EditText Error Messages with appropiate message text)
+- [Convert all the Toast and the EditText Error Messages with appropiate message text](https://github.com/DSCKGEC/cleanurge-app/issues/17)
 
 ## Contributing
 
